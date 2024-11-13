@@ -1,23 +1,26 @@
+import './Header.css'
+
 function Header() {
   return(
-    <>
-      <nav>
-        <h1>로고 여정</h1>
-        <ul>
-          <li>국내</li>
-          <li>국외</li>
-          <li>추천</li>
-          <li>나만의 팁</li>
-          <li>중고거래</li>
+    <nav>
+      <a href='#' class="nav-loggo"><h1>로고 여정</h1></a>
+      <ul class="nav-menu">
+        <li><a href='#'>여행정보</a></li>
+        <li><a href='#'>여행팁</a></li>
+        <li><a href='#'>여행지 추천</a></li>
+        <li><a href='#'>마켓</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="nav-search">
+          <input type="search"></input>
+          <button>검색</button>
+        </div>
+        <ul class="nav-user">
+          <li><a href='#'>로그인</a></li>
+          <li><a href='#'>회원가입</a></li>
         </ul>
-        <input type="search"></input>
-        <button>검색</button>
-        <ul>
-          <li>로그인</li>
-          <li>회원가입</li>
-        </ul>
-      </nav>
-    </>
+      </div>
+    </nav>
   )
 }
 
