@@ -1,9 +1,9 @@
-import './Header.css'
+import '../styles/Header.css'
 
 function Header() {
   return(
     <nav>
-      <a href='#' className="nav-loggo">
+      <a href='#' className="nav-title">
         <h1>여정</h1>
       </a>
       <ul className="nav-menu">

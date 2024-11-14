@@ -1,23 +1,12 @@
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-@font-face { 
-  /* 학교 안심 나들이체 */
-  font-family: 'HakgyoansimNadeuriTTF-B';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimNadeuriTTF-B.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-}
+@import url("common.css");
 
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   position: sticky;
   background-color: #FFB0B0;
+  height: 55px;
 }
 
 nav ul {
@@ -31,15 +20,21 @@ nav a {
   color: black;
 }
 
-nav .nav-loggo {
+nav .nav-title {
   font-family: 'HakgyoansimNadeuriTTF-B';
-  color: black;
+  width: 15%;
+  text-align: center;
+}
+
+h1{
+  font-family: inherit;
+  font-size: 30px;
 }
 
 nav .nav-right {
   display: flex;
   justify-content: space-around;
-  width: 30%;
+  width: 25%;
 }
 
 nav .nav-menu {
@@ -47,6 +42,19 @@ nav .nav-menu {
 }
 
 nav .nav-user {
-  font-size: 13px;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav .nav-user li {
+  float: right;
   text-align: end;
+}
+
+nav .nav-user a {
+  font-size: 13px;
+}
+
+nav .nav-menu a:hover {
+  text-decoration: underline;
 }
