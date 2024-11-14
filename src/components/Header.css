@@ -6,24 +6,36 @@
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: sticky;
+  background-color: #009c75;
 }
 
 nav ul {
   list-style: none;
-}
-
-nav li {
-  display: inline;
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
 }
 
 nav a {
   text-decoration: none;
-  color: black;
+  color: white;
+}
+
+nav .nav-loggo {
+  display: flex;
+  justify-content: space-between;
+  color: white;
 }
 
 nav .nav-right {
-  display: inline-block;
+  display: flex;
+  justify-content: end;
+  width: 30%;
+}
+
+nav .nav- {
+  
 }
