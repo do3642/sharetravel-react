@@ -17,7 +17,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: black;
+  color: rgb(39, 38, 38);
 }
 
 nav .nav-title {
@@ -46,9 +46,29 @@ nav .nav-user a {
 }
 
 nav .nav-search {
-  margin-top: 13px;
+  margin-top: 16px;
 }
 
 nav .nav-menu a:hover {
   opacity: 0.3;
+}
+
+nav .nav-search input {
+  border: none;
+  height: 24px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+nav .nav-search button {
+  background-color: #b1b1b1;
+  border: none;
+  height: 24px;
+  width: 50px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+nav .nav-search input:focus{
+  outline: none;
 }
