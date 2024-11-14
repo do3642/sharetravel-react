@@ -1,4 +1,5 @@
 import '../styles/Header.css'
+import AccountMenu from './AccountMenu';
 
 function Header() {
   return(
@@ -18,8 +19,7 @@ function Header() {
           <button>검색</button>
         </div>
         <ul className="nav-user">
-          <li><a href='#'>로그인</a></li>
-          <li><a href='#'>회원가입</a></li>
+          <AccountMenu />
         </ul>
       </div>
     </nav>

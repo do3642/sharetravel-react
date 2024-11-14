@@ -41,20 +41,14 @@ nav .nav-menu {
   justify-content: space-between;
 }
 
-nav .nav-user {
-  display: flex;
-  justify-content: space-around;
-}
-
-nav .nav-user li {
-  float: right;
-  text-align: end;
-}
-
 nav .nav-user a {
-  font-size: 13px;
+  font-size: 15px;
+}
+
+nav .nav-search {
+  margin-top: 13px;
 }
 
 nav .nav-menu a:hover {
-  text-decoration: underline;
+  opacity: 0.3;
 }
