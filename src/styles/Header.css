@@ -23,22 +23,23 @@ nav a {
 nav .nav-title {
   font-family: 'HakgyoansimNadeuriTTF-B';
   width: 15%;
-  text-align: center;
+  text-align: right;
 }
 
 h1{
   font-family: inherit;
-  font-size: 30px;
+  font-size: 45px;
 }
 
 nav .nav-right {
   display: flex;
   justify-content: space-around;
-  width: 25%;
+  width: 30%;
 }
 
 nav .nav-menu {
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 35%;
 }
 
 nav .nav-user a {
@@ -47,6 +48,7 @@ nav .nav-user a {
 
 nav .nav-search {
   margin-top: 16px;
+  white-space: nowrap;
 }
 
 nav .nav-menu a:hover {
@@ -55,9 +57,10 @@ nav .nav-menu a:hover {
 
 nav .nav-search input {
   border: none;
-  height: 24px;
+  height: 26px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  width: 230px;
 }
 
 nav .nav-search button {
