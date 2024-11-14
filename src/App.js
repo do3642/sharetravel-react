@@ -2,16 +2,20 @@
 import { Routes } from 'react-router-dom';
 import './App.css';
 import Visual from './components/Visual';
+import TravelInfo from './components/TravelInfo';
 
 function App() {
   return (
     <div className="App">
 
-      <Visual />
+      
      <Routes>
 
 
      </Routes>
+     <Visual />
+     <TravelInfo/>
+
     </div>
   );
 }
