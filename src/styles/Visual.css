@@ -1,0 +1,121 @@
+@import url("common.css");
+
+#visual{
+  display: flex;
+  max-height: 650px;
+}
+
+
+/* 왼쪽 배치 비주얼 */
+.left-visual{
+  width: 30%;
+}
+.color-box{
+  width: 100%;
+  height: 70%;
+  background-color:lightsalmon;
+}
+.visual-batch-box{
+  width: 100%;
+  height: 30%;
+  position: relative;left: 0;top: 0;
+}
+.visual-batch-box .visual-btn-box{
+  position: absolute; right: 10%; bottom: 0;
+}
+.visual-batch-box .visual-btn-box button{
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 0 12px;
+  background-color:#FFB0B0;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+
+}
+.visual-batch-box .visual-btn-box button:hover{
+  transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+  animation: gelatine 0.5s 1;
+}
+
+@keyframes gelatine {
+  0%,
+  100% {
+    transform: scale(1, 1);
+    
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+.visual-batch-box .visual-btn-box span{
+  display: inline-block;
+  margin-left: 10px;
+}
+.visual-batch-box .visual-btn-box span span{
+  font-size: 1.2em;
+}
+
+
+/* 오른쪽 이미지 비주얼 */
+
+.right-visual{
+  width:100%;
+  height: 650px;
+  box-shadow: 0px 2px 20px brown;
+  font-size: 0;
+  overflow: hidden;
+}
+.right-visual a{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.right-visual a img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ 
+}
+
+
+/* 비주얼에 떠 있는 텍스트박스 */
+.visual-text-box{
+  position: absolute; left: 20%;top: 15%;
+  line-height: 50px;
+}
+.visual-text-box div{}
+.visual-text-box div p{
+
+}
+
+
+.visual-text-box div:first-child{
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+.visual-text-box div:first-child p{
+  font-size: 2.5em;
+  font-weight: bold;
+  font-family: 'GmarketSansMedium';
+}
+.visual-text-box div:first-child p:last-child{
+  color:#FFF7D1;
+}
+
+.visual-text-box div:last-child{
+  line-height: 35px;
+}
+.visual-text-box div:last-child p{
+  font-size: 1.5em;
+  font-family: 'Pretendard-Regular';
+  color: #fff;
+}
