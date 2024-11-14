@@ -9,19 +9,22 @@
 /* 왼쪽 배치 비주얼 */
 .left-visual{
   width: 30%;
+  position: relative;
 }
 .color-box{
   width: 100%;
-  height: 70%;
+  height: 100%;
   background-color:lightsalmon;
+  transition: .5s;
 }
 .visual-batch-box{
   width: 100%;
   height: 30%;
-  position: relative;left: 0;top: 0;
+  position: absolute; left: 0;bottom: 0;
+  background-color: #fff;
 }
 .visual-batch-box .visual-btn-box{
-  position: absolute; right: 10%; bottom: 0;
+  position: absolute; right: 10%; bottom: 5%;
 }
 .visual-batch-box .visual-btn-box button{
   border: none;
@@ -64,7 +67,6 @@
   font-size: 1.2em;
 }
 
-
 /* 오른쪽 이미지 비주얼 */
 
 .right-visual{
@@ -73,11 +75,14 @@
   box-shadow: 0px 2px 20px brown;
   font-size: 0;
   overflow: hidden;
+  position: relative;
+ 
 }
 .right-visual a{
   display: inline-block;
   width: 100%;
   height: 100%;
+
 }
 .right-visual a img{
   width: 100%;
@@ -89,17 +94,40 @@
 
 /* 비주얼에 떠 있는 텍스트박스 */
 .visual-text-box{
-  position: absolute; left: 20%;top: 15%;
+  width: 550px;
+  position: absolute; left: 15%;top: 5%;
   line-height: 50px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  padding: 100px 15px;
+  border-radius: 10px;
+  overflow: hidden;
 }
-.visual-text-box div{}
-.visual-text-box div p{
 
+.visual-text-box div{
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.visual-text-box div.animating{
+  animation: slideIn 1s forwards;
+}
+.visual-text-box div p{
+}
+
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%); /* 위에서 내려오는 효과 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
 .visual-text-box div:first-child{
-  font-size: 16px;
+  font-size: 1em;
   margin-bottom: 25px;
 }
 .visual-text-box div:first-child p{
@@ -113,9 +141,40 @@
 
 .visual-text-box div:last-child{
   line-height: 35px;
+  font-size: 1em;
 }
 .visual-text-box div:last-child p{
   font-size: 1.5em;
   font-family: 'Pretendard-Regular';
   color: #fff;
 }
+
+
+
+/*  반응형 처리 */
+
+@media (max-width: 1020px) {
+  .visual-batch-box{
+    display: none;
+  }
+  .left-visual{
+    display: none;
+  }
+  .visual-text-box{
+    width: 505px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+@media (max-width: 700px) {
+  .visual-text-box{
+    display: none;
+  }
+  .right-visual{
+    height: 300px;
+  }
+  
+}
+
+
