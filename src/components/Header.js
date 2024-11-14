@@ -4,7 +4,6 @@ function Header() {
   return(
     <nav>
       <a href='#' className="nav-loggo">
-        <h1>로고</h1> 
         <h1>여정</h1>
       </a>
       <ul className="nav-menu">

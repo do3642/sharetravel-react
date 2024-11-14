@@ -4,38 +4,49 @@
   box-sizing: border-box;
 }
 
+@font-face { 
+  /* 학교 안심 나들이체 */
+  font-family: 'HakgyoansimNadeuriTTF-B';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimNadeuriTTF-B.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: sticky;
-  background-color: #009c75;
+  background-color: #FFB0B0;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   width: 30%;
-  justify-content: space-between;
 }
 
 nav a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 nav .nav-loggo {
-  display: flex;
-  justify-content: space-between;
-  color: white;
+  font-family: 'HakgyoansimNadeuriTTF-B';
+  color: black;
 }
 
 nav .nav-right {
   display: flex;
-  justify-content: end;
+  justify-content: space-around;
   width: 30%;
 }
 
-nav .nav- {
-  
+nav .nav-menu {
+  justify-content: space-between;
+}
+
+nav .nav-user {
+  font-size: 13px;
+  text-align: end;
 }
