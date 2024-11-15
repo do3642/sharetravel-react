@@ -3,10 +3,14 @@ import { useState } from 'react';
 import tipsData from '../data/tipsData.js';
 import images from '../data/images.js';
 import comments from '../data/commetsData.js';
+import { useNavigate } from 'react-router-dom';
 
 // 추후 tipsData에 DB에서 꺼내오는걸 받아야함
 // images에는 추천 여행지 사진들
 function TravelInfo() {
+
+
+
 
   // 상태 정의: 현재 이미지 URL을 저장할 state
   const [currentImage, setCurrentImage] = useState("/img/travelInfo-1.jpg");
@@ -45,7 +49,11 @@ function TravelInfo() {
 
 
 
-
+  //  팁 게시물 navigate
+  const navigate = useNavigate();
+  const handleTipClick = (id) => {
+    navigate(`/post/${id}`); // 게시글 상세 페이지로 이동
+  };
 
   return (
     <section id="travel-info">
@@ -118,7 +126,7 @@ function TravelInfo() {
               <li>닉네임</li>
             </ul>
             {tipsWithRandomColors.map((tip, index) => (
-              <ul className="tip" key={index}>
+              <ul className="tip" key={index} onClick={() => handleTipClick(tip.id)}>
                 <li >{tip.category}</li>
                 <li>{tip.title}</li>
                 <li><i className="fa-regular fa-thumbs-up"></i>{tip.thumbsUp}</li>
