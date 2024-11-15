@@ -88,7 +88,7 @@ function TravelInfo() {
         {/* 추천지 관련 댓글들 */}
         <article className="right-travel-info">
           <div className="comments-list">
-            {comments.map((comment, index) => (
+            {comments[imageIndex].map((comment, index) => (
               <div className="comments" key={index}>
                 <div className="comments-info">
                   <p><img src={comment.imgUrl} alt="사용자 프사" /></p>
