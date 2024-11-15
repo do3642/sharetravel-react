@@ -50,8 +50,8 @@ function Visual (){
         <div className="color-box" style={{ backgroundColor: colors[colorIndex] }}></div>
         <div className="visual-batch-box">
             <div className="visual-btn-box">
-              <button onClick={prevSlide}><i class="fa-solid fa-chevron-left"></i></button>
-              <button onClick={nextSlide}><i class="fa-solid fa-chevron-right"></i></button>
+              <button onClick={prevSlide}><i className="fa-solid fa-chevron-left"></i></button>
+              <button onClick={nextSlide}><i className="fa-solid fa-chevron-right"></i></button>
               <span>
                 <span>{currentSlide + 1}</span>
                 <span>/ {slides.length}</span>
