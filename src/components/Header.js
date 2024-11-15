@@ -11,7 +11,7 @@ function Header({ isAuth,handleClose }) {
   return(
     <nav className="nav">
         <a href='#' className={menu ? 'nav-title-hidden' : "nav-title"}>
-          <h1>"여정"</h1>
+          <h1>여정</h1>
         </a>
         <ul className={menu ? 'nav-menu-hidden' : "nav-menu"}>
           <li><a href='#'>여행정보</a></li>

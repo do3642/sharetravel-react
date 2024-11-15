@@ -96,7 +96,7 @@ export default function DrawerMobileNavigation({ open, setOpen, isAuth }) {
                 </> :
                 <>
                   <ListItemButton>로그인</ListItemButton>
-                  <ListItemButton>로그아웃</ListItemButton>
+                  <ListItemButton>회원가입</ListItemButton>
                 </>
 
             }

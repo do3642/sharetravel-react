@@ -129,30 +129,14 @@ h1{
   }
 
   .nav .nav-search {
-    margin-top: 0px;
-    width: 70%;
-    transform: translate(-40%);
+    display: none;
   }
 
-  .nav .nav-search input {
-    width: 180px;
-  }
-
-  @media (max-width: 490px) {
-    .nav .nav-search {
-      transform: translate(-65%)
-    }
-
-  }
 
   @media (max-width: 443px) {
     .nav .nav-title {
       text-align: center;
       white-space : nowrap;
-    }
-
-    .nav .nav-search {
-      display: none;
     }
 
   }
