@@ -1,0 +1,297 @@
+@import url('common.css');
+
+#travel-info{
+  width: 70%;
+  margin:auto;
+  margin-top: 100px;
+}
+#travel-info h2{
+  font-size: 2em;
+  margin: 15px 0;
+  font-family: 'GmarketSansMedium';
+}
+#travel-info .flex-box{
+  display: flex;
+  gap: 15px;
+}
+
+
+
+
+/* 왼쪽 컨텐츠(여행지 추천) */
+.left-travel-info{
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.left-travel-info div{
+  width: 100%;
+}
+.left-travel-info div:nth-of-type(1){
+  height: 400px;
+  overflow: hidden;
+}
+.left-travel-info div > img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.left-travel-info div:nth-of-type(2){
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.left-travel-info div > p{
+  width: 33%;
+  height: 150px;
+  overflow: hidden;
+  opacity: .5;
+  transition: .5s;
+}
+.left-travel-info div > p.active{
+  opacity: 1;
+}
+
+.left-travel-info div > p img{
+ width: 100%;
+ height: 100%;
+}
+
+/* 왼쪽 여행지 변경 버튼 */
+
+.left-travel-info i{
+  font-size: 50px;
+  color: rgba(0, 0, 0, 0.2);
+  position: absolute; 
+  transition: .5s;
+  cursor: pointer;
+  
+}
+.left-travel-info i:nth-of-type(1){
+  left: -40%;top: 40%;
+  
+}
+.left-travel-info i:nth-of-type(2){
+  right: -40%; top: 40%;
+}
+
+/* 호버 시 추천여행지 버튼 변경효과 */
+.left-travel-info:hover i{
+  color: #eee;
+}
+.left-travel-info:hover i:nth-of-type(1){
+  left: 1%;
+}
+.left-travel-info:hover i:nth-of-type(2){
+  right: 1%
+}
+
+.left-travel-info i:hover{
+  color: #000;
+}
+
+
+
+
+/* 우측 컨텐츠(추천지 관련 댓글) */
+.right-travel-info{
+  width: 50%;
+  
+}
+
+.comments-list{
+  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comments{
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.comments-info{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.comments-info p{
+  width: 30px;
+  height: 30px;
+}
+.comments-info p img{
+  width: 100%;
+  height: 100%;
+}
+.comments-info div{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Pretendard-Regular';
+}
+.comments-info div span{
+  font-family: inherit;
+}
+.comments-info div span strong{
+  font-size: 0.8em;
+  font-weight: 100;
+  color: #aaa;
+}
+
+.comments-info div:last-child{
+  margin-left: auto;
+}
+.comments-info div:last-child span{
+  font-weight: 100;
+  color: #aaa;
+}
+.comments-info div:last-child span strong{}
+
+
+.comments-content{
+  margin-top: 10px;
+  height: 40px;
+  overflow: hidden;
+}
+.comments-content span{
+  text-overflow: ellipsis;
+}
+
+
+/* 우측 컨텐츠(여행팁 게시물) */
+.right-travel-info h3{
+  font-size: 1.5em;
+  margin: 20px 0 10px 0;
+  font-family: 'GmarketSansMedium';
+}
+
+
+/* 전체 게시판 컨테이너 */
+.tips-list {
+  width: 100%;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  margin: 20px 0;
+}
+
+/* 게시판 아이템 스타일 */
+.tips-list .tip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 1em;
+}
+
+/* 게시판 아이템 호버 시 배경 */
+.tips-list .tip:hover {
+  background-color: #f9f9f9;
+}
+
+/* 텍스트 스타일 */
+.tips-list .tip li {
+  color: #333;
+  text-align: center;
+  font-family: 'Pretendard-Regular';
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 첫 번째 li (카테고리) 스타일 */
+.tips-list .tip li:first-child {
+  flex: 1;
+  font-weight: bold;
+  max-width: 80px;
+}
+
+/* 두 번째 li (제목) 스타일 */
+.tips-list .tip li:nth-child(2) {
+  flex: 3;
+  text-align: left;
+}
+
+/* 추천수와 댓글수 스타일 */
+.tips-list .tip li:nth-child(3),
+.tips-list .tip li:nth-child(4) {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 추천수, 댓글수 아이콘 간격 조정 */
+.tips-list .tip li i {
+  margin-right: 5px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+/* 마지막 li (작성자) 스타일 */
+.tip li:last-child {
+  margin-left: auto;
+  flex: 1;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+ 
+}
+
+
+/* 첫 번째 li (카테고리) 스타일 */
+.tips-list .tip:first-child  li{
+  display: table-caption;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  font-family: 'GmarketSansMedium';
+  font-style:normal;
+  
+}
+.tips-list .tip:first-child{
+  background-color: #eee;
+}
+.tips-list .tip:not(:first-child) {
+  cursor: pointer;
+}
+
+/* 미디어 처리 */
+
+@media (max-width: 1655px) {
+  #travel-info{
+    width: 80%;
+  }
+}
+@media (max-width: 1485px) {
+  #travel-info{
+    width: 90%;
+  }
+}
+@media (max-width: 1200px) {
+  .flex-box{
+    flex-direction: column;
+  }
+  .left-travel-info{
+    width: 100%;
+  }
+  .right-travel-info{
+    width: 100%;
+  }
+  .left-travel-info div:nth-of-type(1){
+    height: 70%;
+  
+  }
+}
+@media (max-width: 500px) {
+  .tip li:first-child{
+    display: none;
+  }
+  .tips-list .tip:first-child li:first-child{
+    display: none;
+  }
+}
+
+
