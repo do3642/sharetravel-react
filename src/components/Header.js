@@ -29,7 +29,7 @@ function Header({ isAuth,handleClose }) {
         </ul>
       </div>
       
-      <MobileMenu className='nav-hamburger' isAuth={isAuth} open={open} setOpen={setOpen} />
+      <MobileMenu isAuth={isAuth} open={open} setOpen={setOpen} />
     </nav>
   )
 }

@@ -9,16 +9,19 @@ import Tooltip from '@mui/material/Tooltip';
 import '../styles/AccountMenu.css'
 import LogoutMenu from './LogoutMenu';
 import LoginMenu from './LoginMenu';
+import { useMediaQuery } from '@mui/material';
 
 export default function AccountMenu({isAuth}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const isSmallScreen = useMediaQuery('(min-width: 800px)')
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -35,66 +38,81 @@ export default function AccountMenu({isAuth}) {
           </IconButton>
         </Tooltip>
       </Box>
-      <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        slotProps={{
-          paper: {
-            elevation: 0,
-            sx: {
-              // 프로필 누르면 뜨는 창 관련 css
-              overflow: 'visible',
-              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-              mt: 1.5,
-              '& .MuiAvatar-root': {
-                width: 32,
-                height: 32,
-                ml: -0.5,
-                mr: 1 
-              },
-              '&::before': {
-                content: '""',
-                display: 'block',
-                position: 'absolute',
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                bgcolor: 'background.paper',
-                transform: 'translateY(-50%) rotate(45deg)',
-                zIndex: 0,
+      {isSmallScreen && (
+        <Menu
+          anchorEl={anchorEl}
+          id="account-menu"
+          open={open}
+          onClose={handleClose}
+          onClick={handleClose}
+          slotProps={{
+            paper: {
+              elevation: 0,
+              sx: {
+                // 프로필 누르면 뜨는 창 관련 css
+                overflow: 'visible',
+                filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                mt: 1.5,
+                '& .MuiAvatar-root': {
+                  width: '50px',
+                  height: '55px',
+                  ml: -0.5,
+                  mr: 1 
+                },
+                '&::before': {
+                  content: '""',
+                  display: 'block',
+                  position: 'absolute',
+                  top: 0,
+                  right: 14,
+                  width: 10,
+                  height: 10,
+                  bgcolor: 'background.paper',
+                  transform: 'translateY(-50%) rotate(45deg)',
+                  zIndex: 0,
+                },
               },
             },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-      >
+          }}
+          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        >
 
-        <div className='menu-close' onClick={handleClose}>
-          <b>x</b>
-        </div>
-        
-        <MenuItem onClick={handleClose} sx={{pl: 8}}>
-          <Avatar />
-        </MenuItem>
+          <div className='menu-close' onClick={handleClose}>
+            <b>x</b>
+          </div>
+          
+          {
+            isAuth ?
+              <MenuItem onClick={handleClose} sx={{pl: 7.5}}> 
+                <Avatar 
+                sx={{
+                  borderRadius: '50%'}}
+                  />
+              </MenuItem>:
 
-        {
-          isAuth ?
-          <div className='account-menu'>닉네임님</div> :
-          <div className='account-menu'>로그인 후 <br />이용해주세요</div>
-        }
-        <br />
-        <Divider />
-        {
-          isAuth?
-          <LoginMenu handleClose={handleClose} /> :
-          <LogoutMenu handleClose={handleClose} />
-        }
-      </Menu>
+              <MenuItem onClick={handleClose} sx={{pl: 6}}>
+                <Avatar 
+                sx={{
+                  borderRadius: '50%'}}
+                  />
+              </MenuItem>
+          }
+
+          {
+            isAuth ?
+            <div className='account-menu'>닉네임님</div> :
+            <div className='account-menu'>로그인 후 <br />이용해주세요</div>
+          }
+          <br />
+          <Divider />
+          {
+            isAuth?
+            <LoginMenu handleClose={handleClose} /> :
+            <LogoutMenu handleClose={handleClose} />
+          }
+        </Menu>
+      )}
     </React.Fragment>
   );
 }
