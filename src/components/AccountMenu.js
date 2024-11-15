@@ -11,8 +11,10 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import Logout from '@mui/icons-material/Logout';
 import '../styles/AccountMenu.css'
+import LogoutMenu from './LogoutMenu';
+import LoginMenu from './LoginMenu';
 
-export default function AccountMenu() {
+export default function AccountMenu({isAuth}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -84,29 +86,18 @@ export default function AccountMenu() {
           <Avatar />
         </MenuItem>
 
-        <div className='account-menu'> 
-          닉네임님
-        </div>
+        {
+          isAuth ?
+          <div className='account-menu'>닉네임님</div> :
+          <div className='account-menu'>로그인 후 <br />이용해주세요</div>
+        }
         <br />
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <EditNoteIcon fontSize="small" />
-          </ListItemIcon>
-          게시글 작성
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <ShoppingCartCheckoutIcon fontSize="small" />
-          </ListItemIcon>
-          찜한 상품
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          로그아웃
-        </MenuItem>
+        {
+          isAuth?
+          <LoginMenu handleClose={handleClose} setAnchorEl={setAnchorEl}/> :
+          <LogoutMenu handleClose={handleClose} setAnchorEl={setAnchorEl}/>
+        }
       </Menu>
     </React.Fragment>
   );
