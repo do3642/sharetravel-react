@@ -4,7 +4,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import * as React from 'react';
 import { MenuItem } from '@mui/material';
 
-function LogoutMenu ({ handleClose, setAnchorEl }) {
+function LogoutMenu ({ handleClose}) {
   return (
     <React.Fragment>
       

@@ -5,7 +5,9 @@ import Logout from '@mui/icons-material/Logout';
 import * as React from 'react';
 import { MenuItem } from '@mui/material';
 
-function LoginMenu ({ handleClose, setAnchorEl }) {
+function LoginMenu ({ handleClose}) {
+  // LoginMenu 컴포넌트와 LogoutMenu 컴포넌트에 있는 handleClose는 AccountMenu에서 가져옴.
+  
   return(
     <React.Fragment>
       

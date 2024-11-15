@@ -1,6 +1,6 @@
 @import url("common.css");
 
-nav {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,18 +9,18 @@ nav {
   height: 55px;
 }
 
-nav ul {
+.nav ul {
   list-style: none;
   display: flex;
   width: 30%;
 }
 
-nav a {
+.nav a {
   text-decoration: none;
   color: rgb(39, 38, 38);
 }
 
-nav .nav-title {
+.nav .nav-title {
   font-family: 'HakgyoansimNadeuriTTF-B';
   width: 15%;
   text-align: right;
@@ -31,31 +31,36 @@ h1{
   font-size: 45px;
 }
 
-nav .nav-right {
+.nav .nav-right {
   display: flex;
   justify-content: space-around;
   width: 30%;
 }
 
-nav .nav-menu {
+.nav .nav-menu {
   justify-content: space-around;
   width: 35%;
 }
 
-nav .nav-user a {
+.nav .nav-user {
+  width: 15%;
+  align-items: center;
+}
+
+.nav .nav-user a {
   font-size: 15px;
 }
 
-nav .nav-search {
+.nav .nav-search {
   margin-top: 16px;
   white-space: nowrap;
 }
 
-nav .nav-menu a:hover {
+.nav .nav-menu a:hover {
   opacity: 0.3;
 }
 
-nav .nav-search input {
+.nav .nav-search input {
   border: none;
   height: 26px;
   border-top-left-radius: 5px;
@@ -63,7 +68,7 @@ nav .nav-search input {
   width: 230px;
 }
 
-nav .nav-search button {
+.nav .nav-search button {
   background-color: #b1b1b1;
   border: none;
   height: 24px;
@@ -72,6 +77,83 @@ nav .nav-search button {
   border-bottom-right-radius: 5px;
 }
 
-nav .nav-search input:focus{
+.nav .nav-search input:focus{
   outline: none;
+}
+
+.nav .nav-hamburger{
+  display: none;
+}
+
+.nav .nav-search-hidden{
+  display: none;
+}
+
+.nav .nav-user-hidden {
+  display: none;
+}
+
+.nav .nav-hamburger-hidden {
+  display: none;
+}
+
+.nav .nav-menu-hidden {
+  display: none;
+}
+
+.nav .nav-title-hidden {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nav {
+    justify-content: space-around;
+  }
+
+  .nav .nav-title {
+    width: 20%;
+  }
+
+  .nav .nav-menu {
+    display: none;
+  }
+
+  .nav .nav-hamburger{
+    display: inline;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .nav .nav-user{
+    display: none;
+  }
+
+  .nav .nav-search {
+    margin-top: 0px;
+    width: 70%;
+    transform: translate(-40%);
+  }
+
+  .nav .nav-search input {
+    width: 180px;
+  }
+
+  @media (max-width: 490px) {
+    .nav .nav-search {
+      transform: translate(-65%)
+    }
+
+  }
+
+  @media (max-width: 443px) {
+    .nav .nav-title {
+      text-align: center;
+      white-space : nowrap;
+    }
+
+    .nav .nav-search {
+      display: none;
+    }
+
+  }
 }
