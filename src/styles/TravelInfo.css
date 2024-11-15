@@ -155,7 +155,9 @@
   height: 40px;
   overflow: hidden;
 }
-.comments-content span{}
+.comments-content span{
+  text-overflow: ellipsis;
+}
 
 
 /* 우측 컨텐츠(여행팁 게시물) */
