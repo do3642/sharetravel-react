@@ -71,11 +71,11 @@
   
 }
 .left-travel-info i:nth-of-type(1){
-  left: -50%;top: 40%;
+  left: -40%;top: 40%;
   
 }
 .left-travel-info i:nth-of-type(2){
-  right: -50%; top: 40%;
+  right: -40%; top: 40%;
 }
 
 /* 호버 시 추천여행지 버튼 변경효과 */
@@ -203,7 +203,6 @@
 .tips-list .tip li:first-child {
   flex: 1;
   font-weight: bold;
-  color: #007BFF;
   max-width: 80px;
 }
 
