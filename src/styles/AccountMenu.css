@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.account-menu {
+  text-align: center;
+}
+
+.menu-close {
+  padding-right: 12px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.menu-close b {
+  font-family:'S-CoreDream-3Light';
+}
+
+.menu-close b:hover {
+  opacity: 0.3;
+  width: 2px;
+}
