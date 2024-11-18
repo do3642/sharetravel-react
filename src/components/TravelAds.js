@@ -16,8 +16,8 @@ function TravelAds(){
   return(
     <section className="Travel-Ads">
       <div className="Travel-Ads-Top">
-        <h2>제목</h2>
-        <Link to={"/"}>+더보기</Link>
+        <h2>오늘의 추천 숙소</h2>
+        <Link to={"/"}><i className="fa-solid fa-plus"></i> 더보기</Link>
       </div>
       <article>
          {adsData.map((ad) => (

@@ -4,8 +4,11 @@
   max-width: 1200px; /* 부모의 최대 크기 제한 */
   margin: auto; /* 가운데 정렬 */
   padding: 0 16px; /* 좌우 여백 추가 (반응형 대비) */
+  margin-top: 20px;
 }
 
+
+/* 제목과 더보기 */
 .Travel-Ads-Top{
   display: flex;
   justify-content: space-between;
@@ -14,16 +17,49 @@
   margin-bottom: 16px;
 }
 
+.Travel-Ads-Top h2{
+  font-size: 2em;
+  font-family: 'GmarketSansMedium';
+}
+.Travel-Ads-Top a{
+ color: #007bff; 
+ font-family: 'Pretendard-Regular';
+ transition: .5s;
+ padding: 7px 10px;
+ border-radius: 15px;
+}
+.Travel-Ads-Top i{
+  color: #007bff; 
+  font-family: 'Pretendard-Regular';
+  transition: .5s;
+  font-size: 1.2em;
+ }
+ .Travel-Ads-Top a:hover i{
+  color: #fff;
+  transform-origin: center;
+  transform: rotate(360deg);
+  
+ }
+ .Travel-Ads-Top a:hover{
+  background-color: #007bff;
+  color: #fff;
+ }
+
+
+/*  카드들 배치 */
+
 .Travel-Ads article {
   display: flex;
   flex-wrap: wrap;
   gap: 16px; /* 카드 간격 */
+ 
 }
 
 .Travel-Ads-Box {
   flex: 0 0 calc(25% - 12px); /* 부모가 넓을 때 4개씩 */
   height: auto; /* 필요에 따라 높이 설정 */
   margin-bottom: 16px; /* 아래 간격 */
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
