@@ -1,7 +1,7 @@
 import '../styles/TravelAdsBox.css'
-function TravelAdsBox({ imgSrc, category, title, description, detail, likes, comments }){
+function TravelAdsBox({ imgSrc, category, title, description, detail, likes, comments, onClick }){
   return(
-    <div className="Travel-Ads-Box">
+    <div className="Travel-Ads-Box" onClick={onClick}>
       <div>
         <img src={imgSrc} alt="" />
       </div>

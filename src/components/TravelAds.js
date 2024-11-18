@@ -1,16 +1,15 @@
 import TravelAdsBox from "./TavelAdsBox";
 import adsData from "../data/travelAdsData.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../styles/TravelAds.css'
 
 
 function TravelAds(){
-  // 4개씩 그룹화
-  const groupedData = adsData.reduce((acc, curr, index) => {
-    if (index % 4 === 0) acc.push([]); // 새로운 그룹 시작
-    acc[acc.length - 1].push(curr); // 현재 데이터를 마지막 그룹에 추가
-    return acc;
-  }, []);
+  // 박스 클릭시 포스트 이동역할
+  const navigate = useNavigate();
+  const handleClick = (id) => {
+    navigate(`/post/${id}`);  // 해당 포스트로 이동
+  };
 
 
   return(
@@ -30,6 +29,7 @@ function TravelAds(){
           detail={ad.detail}
           likes={ad.likes}
           comments={ad.comments}
+          onClick={() => handleClick(ad.id)}
          />
             ))}
         </article>
