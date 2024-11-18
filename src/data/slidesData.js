@@ -2,27 +2,25 @@
  const slides = [
   {
     imgSrc: "/img/Banner-1.jpg",
-    link: "/",
-    mainText: "모두시그니처",
-    subText: "모두가 선택한 프리미엄여행",
-    hashtags: ["#2년연속 한국소비자대상 수상", "#시그니처 #시그니처블랙"]
+    link: "/page1",
+    mainText: "럭셔리 리조트",
+    subText: "프리미엄 여행을 위한 선택",
+    hashtags: ["#5성급리조트", "#럭셔리여행", "#특별한휴식"]
   },
   {
     imgSrc: "/img/Banner-2.jpg",
     link: "/page2",
-    mainText: "프리미엄여행2",
-    subText: "차별화된 여행 경험",
-    hashtags: ["#여행 #프리미엄 #특별한경험"]
+    mainText: "모험과 탐험",
+    subText: "잊지 못할 모험이 기다립니다",
+    hashtags: ["#어드벤처", "#탐험", "#자연"]
   },
   {
     imgSrc: "/img/Banner-3.jpg",
     link: "/page3",
-    mainText: "럭셔리 트립",
-    subText: "평생 남을 최고의 여행",
-    hashtags: ["#럭셔리 #독점여행 #VIP"]
+    mainText: "가족과 함께하는 여행",
+    subText: "모두가 즐길 수 있는 여행지",
+    hashtags: ["#가족여행", "#아이와함께", "#추억만들기"]
   }
 ];
-
-
 
 export default slides;
