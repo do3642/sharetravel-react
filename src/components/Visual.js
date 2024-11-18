@@ -41,7 +41,6 @@ function Visual (){
   const startAutoSlide = () => {
     autoSlideTimerRef.current = setInterval(() => {
       nextSlide();
-      console.log('test')
     }, 5000); // 5초마다 자동으로 슬라이드 이동
   };
 
