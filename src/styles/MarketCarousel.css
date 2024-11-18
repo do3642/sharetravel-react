@@ -1,0 +1,61 @@
+@import url('common.css');
+
+.marketCrs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden; /* 넘치는 부분 숨김 */
+  width: 80%; /* 원하는 너비로 조정 */
+}
+
+.carousel {
+  display: flex;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  flex: 0 0 100%; /* 각 사진의 너비를 100%로 설정 */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.5; /* 기본 상태에서 반투명 */
+  transform: scale(0.8); /* 기본 상태에서 축소 */
+}
+
+.carousel-item.active {
+  opacity: 1; /* 가운데 사진은 불투명 */
+  transform: scale(1); /* 가운데 사진은 확대 */
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.go {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.go.left {
+  left: 10px;
+}
+
+.go.right {
+  right: 10px;
+}
+
+.go:hover {
+  color: #000;
+}
