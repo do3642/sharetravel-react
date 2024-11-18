@@ -2,14 +2,10 @@
 
 
 .Travel-Ads-Box{
-  
-  width: 280px;
-  padding: 10px;
- 
-  
+  /* width: 280px; */
 }
 
-
+/* 박스 안 이미지 */
 .Travel-Ads-Box div:nth-of-type(1){
   width: 100%;
   border-radius: 15px;
@@ -19,10 +15,13 @@
 }
 .Travel-Ads-Box div img{
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 
+
+/* 박스 안 글씨들 */
 .Travel-Ads-Box p{
   font-family: 'Pretendard-Regular';
 }
@@ -35,6 +34,7 @@
 .Travel-Ads-Box p:nth-of-type(2){
   color: #333;
   font-size: 1.1em;
+  font-weight: bold;
 }
 .Travel-Ads-Box p:nth-of-type(3){
   margin-top: 10px;
@@ -42,6 +42,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 7px;
+  color: #333;
 }
 .Travel-Ads-Box p:nth-of-type(4) {
   display: -webkit-box;                /* 플렉스박스 모델을 사용 */
@@ -49,9 +51,10 @@
   -webkit-line-clamp: 4;               /* 최대 4줄로 텍스트 제한 */
   text-overflow: ellipsis;             /* 넘친 텍스트에 ... 표시 */
   overflow: hidden;                    /* 넘친 내용 숨김 */
-  height: 100px;                       /* 박스 높이 설정 */
+  height: 95px;                       /* 박스 높이 설정 */
   line-height: 1.5;                    /* 줄 간격 설정 */
   line-clamp: 4;
+  color: #555;
 }
 
 .Travel-Ads-Box div:nth-of-type(2){
@@ -59,10 +62,22 @@
   justify-content: space-between;
   padding: 10px;
 }
+
+
+
+
+/* 박스 안 댓글,좋아요 style */
 .Travel-Ads-Box div:nth-of-type(2) span{}
 .Travel-Ads-Box div:nth-of-type(2) span:nth-of-type(1) i{
-  color: #74C0FC;
+  color: #74c0fc;
 }
 .Travel-Ads-Box div:nth-of-type(2) span:nth-of-type(1){
-  color: #74C0FC;
+  color: #aaa;
 }
+.Travel-Ads-Box div:nth-of-type(2) span:nth-of-type(2) i{
+  color: #74c0fc;
+}
+.Travel-Ads-Box div:nth-of-type(2) span:nth-of-type(2){
+  color: #aaa;
+}
+
