@@ -54,7 +54,7 @@ h1{
 .nav .nav-search {
   height: 26px;
   width: 230px;
-  margin-top: 14px;
+  margin-top: 15px;
   white-space: nowrap;
   position: relative;
   display: flex;
@@ -66,18 +66,22 @@ h1{
 
 .nav .nav-search input {
   width: 100%;
-  background-color: #FFB0B0;
-  border-width: 0 0 1px;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  padding-left: 6px;
 }
 
 .nav .nav-search button {
-  background-color: #FFB0B0;
+  background-color: white;
   border: none;
   color: #7a7a7a;
   position: absolute;
-  right: 0;
-  height: 100%;
+  top: 1px;
+  right: 3px;
+  height: 97%;
   align-items: center;
+  border-radius: 5px;
 }
 
 .nav .nav-search input:focus{
