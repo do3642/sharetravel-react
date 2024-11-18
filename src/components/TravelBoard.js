@@ -84,6 +84,17 @@ function TravelBoard() {
     }
   };
 
+
+
+
+
+
+  // 임시 데이터로 필터링
+   // 선택된 카테고리에 따라 게시글 필터링
+   const filteredPosts = allPosts
+   .filter((post) => post.category === selectedCategory) // 국내/국외 필터
+   .sort((a, b) => new Date(b.date) - new Date(a.date)); // 최신순 정렬
+
   return (
     <section className="travel-board">
       {/* 카테고리 버튼 */}
@@ -122,7 +133,7 @@ function TravelBoard() {
         </thead>
         <tbody>
           {/* {posts.map((post, index) => ( */}
-          {allPosts.map((post, index) => {
+          {filteredPosts.map((post, index) => {
           const isNewPost = new Date(post.date).toDateString() === new Date().toDateString(); // 오늘 날짜와 비교
 
           return (
