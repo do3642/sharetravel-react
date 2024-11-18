@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import '../styles/Header.css'
 import AccountMenu from './AccountMenu';
-import MenuIcon from '@mui/icons-material/Menu';
 import MobileMenu from './MobileMenu';
+import SearchIcon from '@mui/icons-material/Search';
 
 function Header({ isAuth,handleClose }) {
   const [menu, setMenu] = useState(false); // false하면 모바일 메뉴가 안 뜨고 true 하면 모바일 메뉴 뜸.
@@ -21,8 +21,8 @@ function Header({ isAuth,handleClose }) {
         </ul>
       <div className="nav-right">
         <div className={menu ? "nav-search-hidden" : "nav-search"}>
-          <input type="search"></input>
-          <button>검색</button>
+          <input type="search" placeholder='검색'></input>
+          <button><SearchIcon/></button> 
         </div>
         <ul className={menu ? "nav-user-hidden" : "nav-user"}>
           <AccountMenu isAuth={isAuth}/>

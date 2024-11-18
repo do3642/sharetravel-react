@@ -42,7 +42,7 @@ export default function DrawerMobileNavigation({ open, setOpen, isAuth }) {
           </Box>
           <Input
             size="sm"
-            placeholder="Search"
+            placeholder="검색"
             variant="plain"
             endDecorator={<Search />}
             slotProps={{

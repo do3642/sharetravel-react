@@ -52,8 +52,12 @@ h1{
 }
 
 .nav .nav-search {
-  margin-top: 16px;
+  height: 26px;
+  width: 230px;
+  margin-top: 14px;
   white-space: nowrap;
+  position: relative;
+  display: flex;
 }
 
 .nav .nav-menu a:hover {
@@ -61,20 +65,19 @@ h1{
 }
 
 .nav .nav-search input {
-  border: none;
-  height: 26px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  width: 230px;
+  width: 100%;
+  background-color: #FFB0B0;
+  border-width: 0 0 1px;
 }
 
 .nav .nav-search button {
-  background-color: #b1b1b1;
+  background-color: #FFB0B0;
   border: none;
-  height: 24px;
-  width: 50px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  color: #7a7a7a;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  align-items: center;
 }
 
 .nav .nav-search input:focus{
