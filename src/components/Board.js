@@ -56,6 +56,7 @@ function Board({ posts,boardType }) {
         <thead>
           <tr>
             <th>글번호</th>
+            
             <th>여행지</th>
             <th>제목</th>
             <th>작성일</th>
