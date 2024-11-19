@@ -59,6 +59,7 @@ function Board({ posts }) {
             <th>제목</th>
             <th>작성일</th>
             <th>작성자</th>
+            <th>조회수</th>
           </tr>
         </thead>
         <tbody>
@@ -79,6 +80,7 @@ function Board({ posts }) {
               </td>
               <td>{post.date}</td>
               <td>{post.author}</td>
+              <td>{post.views}</td>
             </tr>
              )
           })}
