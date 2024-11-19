@@ -11,8 +11,8 @@
   font-size: 1.5em;
 }
 .post-content > span{
-  background-color: #e2eaf6;
-  color: #3a8afd;
+  background-color: #f6e2e2;
+  color: #fd3a3a;
   padding: 2px 10px;
   margin-top: 10px;
   border-radius: 5px;
@@ -126,39 +126,3 @@
 .post-body .post-con{}
 
 
-/* 좋아요 버튼 */
-.like-btn{
-  text-align: center;
-  margin-top: 40px;
-}
-.like-btn button {
-  background-color: #FFB0B0; 
-  color: #fff; /* 흰색 텍스트 */
-  font-size: 1.2em; /* 텍스트 크기 */
-  padding: 20px 20px; /* 버튼 내부 여백 */
-  border: none; /* 기본 테두리 제거 */
-  border-radius: 5px; /* 둥근 모서리 */
-  cursor: pointer; /* 클릭 가능한 커서 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
-  transition: background-color 0.3s, transform 0.2s; /* 색상과 클릭 애니메이션 */
-}
-.like-btn button i{
-  margin-right: 10px;
-  font-size: 1.2em;
-}
-.like-btn button i:focus{
-  color: red;
-}
-.like-btn button:hover {
-  background-color: #eea0a0;
-}
-
-.like-btn button:active {
-  transform: scale(0.95); /* 클릭 시 살짝 눌리는 효과 */
-}
-
-.like-btn button:disabled {
-  background-color: #ccc; /* 비활성화 시 회색 */
-  cursor: not-allowed; /* 비활성화 커서 */
-  box-shadow: none; /* 그림자 제거 */
-}
