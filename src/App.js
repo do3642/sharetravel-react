@@ -5,6 +5,8 @@ import Header from './components/Header';
 
 
 import { useState } from 'react';
+import TravelInfo from './components/TravelInfo';
+import MarketCarousel from './components/MarketCarousel';
 
 import Home from './components/Home';
 import TravelBoard from './components/TravelBoard';
@@ -17,11 +19,16 @@ function App() {
 
       
      <Routes>
+      
       <Route path='/' element={<Home />} />
       <Route path='/travel-board' element={<TravelBoard />} />
      </Routes>
     
 
+
+
+
+     <MarketCarousel />
 
     </div>
   );
