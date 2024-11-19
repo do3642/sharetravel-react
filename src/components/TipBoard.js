@@ -13,7 +13,7 @@ function TipBoard() {
       </div>
 
       {/* Board 컴포넌트 호출 */}
-      <Board posts={allTips} />
+      <Board posts={allTips} boardType={"tip"} />
     </section>
   );
 }

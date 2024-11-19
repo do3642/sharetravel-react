@@ -8,7 +8,7 @@ function TravelAds(){
   // 박스 클릭시 포스트 이동역할
   const navigate = useNavigate();
   const handleClick = (id) => {
-    navigate(`/post/${id}`);  // 해당 포스트로 이동
+    navigate(`/travel-info/${id}`);  // 해당 포스트로 이동
   };
 
 
@@ -16,7 +16,7 @@ function TravelAds(){
     <section className="Travel-Ads">
       <div className="Travel-Ads-Top">
         <h2>오늘의 추천 숙소</h2>
-        <Link to={"/"}><i className="fa-solid fa-plus"></i> 더보기</Link>
+        <Link to={"/travel-info"}><i className="fa-solid fa-plus"></i> 더보기</Link>
       </div>
       <article>
          {adsData.map((ad) => (

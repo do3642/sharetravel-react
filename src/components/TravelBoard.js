@@ -68,7 +68,7 @@ function TravelBoard() {
       </div>
 
       {/* Board 컴포넌트 호출 */}
-      <Board posts={filteredPosts} />
+      <Board posts={filteredPosts} boardType={"travel"} />
     </section>
   );
 }
