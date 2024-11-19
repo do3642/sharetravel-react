@@ -49,6 +49,10 @@ const generateRandomPosts = (count) => {
     const comments = faker.number.int({ min: 10, max: 150 });
     const recommendations = faker.number.int({ min: 10, max: 120 });
 
+    // 새로운 속성 추가
+    const content = faker.lorem.paragraphs(faker.number.int({ min: 1, max: 3 })); // 1~3개의 단락 생성
+    const image = faker.image.urlPicsumPhotos(); // 랜덤 이미지 URL 생성
+
     posts.push({
       id: i,
       category,
@@ -59,6 +63,8 @@ const generateRandomPosts = (count) => {
       views,
       comments,
       recommendations,
+      content,
+      image,
     });
   }
   return posts;
