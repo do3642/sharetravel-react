@@ -70,6 +70,6 @@ const generateRandomPosts = (count) => {
   return posts;
 };
 
-const allPosts = generateRandomPosts(100);
+const allPosts = generateRandomPosts(30);
 
 export default allPosts;
