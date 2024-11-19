@@ -56,3 +56,16 @@
     opacity: 0; /* 점점 투명해짐 */
   }
 }
+
+
+/* 모바일 반응형 디자인 */
+@media (max-width: 600px) {
+  .like-btn button {
+    font-size: 1em; /* 모바일에서는 폰트 크기를 줄임 */
+    padding: 15px 15px; /* 모바일에서는 버튼 여백을 조금 줄임 */
+  }
+
+  .like-btn button i {
+    font-size: 1em; /* 아이콘 크기도 줄여줍니다 */
+  }
+}
