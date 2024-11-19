@@ -1,5 +1,6 @@
 const marketData = [
   {
+    id: 1,
     src: '/img/market-1.png',
     title: '(신품)여행가방 여행캐리어 24인치 에스로체',
     link: '/market/1',
@@ -10,6 +11,7 @@ const marketData = [
   },
 
   {
+    id: 2,
     src: '/img/market-2.png',
     title: '탄소필터샤워기 헤드+바디필터 포함, 프리미엄 샤워기',
     link: '/market/2',
@@ -20,6 +22,7 @@ const marketData = [
   },
 
   {
+    id: 3,
     src: '/img/market-3.png',
     title: '새상품) 다이소 화장품 용기 도무송 여행 용기함, 무인양품',
     link: '/market/3',
@@ -30,6 +33,7 @@ const marketData = [
   },
 
   {
+    id: 4,
     src: '/img/market-4.png',
     title: '허리여권가방+핸드폰스트립 소매치기예방 유럽여행준비물',
     link: '/market/4',
@@ -40,6 +44,7 @@ const marketData = [
   },
 
   {
+    id: 5,
     src: '/img/market-5.png',
     title: '[새제품] 여행용가방 | 빅백',
     link: '/market/5',

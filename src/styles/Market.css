@@ -1,13 +1,15 @@
-
+/* 전체 섹션 */
 .market {
   max-width: 1440px;
   margin: 0 auto;
   padding: 30px;
 }
 
+/* 정렬 기준 탭 */
 .sort-tabs {
   display: flex;
   justify-content: end;
+  margin-bottom: 30px;
 }
 
 .sort-tabs button {
@@ -29,4 +31,3 @@
 .sort-tabs button:not(.sort):hover {
   background-color: #ddd;
 }
-

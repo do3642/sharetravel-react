@@ -1,0 +1,17 @@
+@import url('common.css');
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap; /* 카드들이 한 줄에 다 들어가지 않으면 다음 줄로 넘어가도록 설정 */
+  gap: 16px;
+  justify-content: center;
+}
+
+.product-card {
+  width: 20%;
+  border: 1px solid #b9b9b9;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* 패딩 포함하여 크기 계산 */
+  padding: 10px;
+}
