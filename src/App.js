@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Visual from './components/Visual';
@@ -15,8 +15,7 @@ function App() {
 
       
      <Routes>
-
-
+      
      </Routes>
      <Visual />
      <TravelInfo/>
