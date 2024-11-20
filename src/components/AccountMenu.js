@@ -100,7 +100,7 @@ export default function AccountMenu({isAuth,setIsAuth,user}) {
           }
 
           {
-            isAuth ?
+            isAuth && user ?
             <div className='account-menu'>{user.nickname}님</div> :
             <div className='account-menu'>로그인 후 <br />이용해주세요</div>
           }

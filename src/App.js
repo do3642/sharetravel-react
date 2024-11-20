@@ -19,7 +19,10 @@ import axiosInstance from './axios/axiosInstance';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false); // false면 로그아웃 상태, true면 로그인 상태.
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // 사용자 정보가 담긴 state
+
+
+  //로그인 시 사용자 정보를 받아옴
   useEffect(()=>{
     if(isAuth){
       axiosInstance.get('/user')
@@ -31,7 +34,7 @@ function App() {
         })
     }
   }, [isAuth])
-
+console.log(user);
   return (
     <div className="App">
       <Header isAuth={isAuth} setIsAuth={setIsAuth} user={user}/>
