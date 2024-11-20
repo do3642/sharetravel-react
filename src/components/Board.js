@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Board.css";
 
-function Board({ posts }) {
+function Board({ posts,boardType }) {
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
   const [startPage, setStartPage] = useState(1); // 시작 페이지
   const [endPage, setEndPage] = useState(3); // 끝 페이지
@@ -45,7 +45,8 @@ function Board({ posts }) {
 
   // 게시글 클릭 시 상세 페이지로 이동
   const handlePostClick = (postId) => {
-    navigate(`/travel-board/${postId}`);
+    const basePath = boardType === "tip" ? "/tip-board" : "/travel-board";
+    navigate(`${basePath}/${postId}`);
   };
 
   return (
@@ -55,10 +56,12 @@ function Board({ posts }) {
         <thead>
           <tr>
             <th>글번호</th>
+            
             <th>여행지</th>
             <th>제목</th>
             <th>작성일</th>
             <th>작성자</th>
+            <th>조회수</th>
           </tr>
         </thead>
         <tbody>
@@ -79,6 +82,7 @@ function Board({ posts }) {
               </td>
               <td>{post.date}</td>
               <td>{post.author}</td>
+              <td>{post.views}</td>
             </tr>
              )
           })}

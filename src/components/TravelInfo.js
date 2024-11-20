@@ -52,7 +52,7 @@ function TravelInfo() {
   //  팁 게시물 navigate
   const navigate = useNavigate();
   const handleTipClick = (id) => {
-    navigate(`/post/${id}`); // 게시글 상세 페이지로 이동
+    navigate(`/tip-board/${id}`); // 게시글 상세 페이지로 이동
   };
 
   return (
