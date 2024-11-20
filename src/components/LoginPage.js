@@ -28,9 +28,7 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const endpoint =
-        activeTab === "일반 로그인" ? "/user/login" : "/company/login";
-      const response = await axios.post(endpoint, credentials);
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, credentials);
       alert("로그인 성공! " + JSON.stringify(response.data));
     } catch (error) {
       alert("로그인 실패: " + error.message);

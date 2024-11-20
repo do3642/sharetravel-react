@@ -1,51 +1,75 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function UserRegister() {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [ssn, setSsn] = useState(""); // 주민번호 앞자리
+  const navigate = useNavigate();
+
+  const [member,setMember] = useState({
+    username : '',
+    password:'',
+    nickname:'',
+    ssn:''
+  })
+
+  const onChangeHandler = (e) => {
+    setMember({
+      ...member,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 회원가입 처리 로직 작성
-  };
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/User-Register`,member)
+    .then(response => {
+      console.log(response);
+      alert(response.data);
+      navigate('/');
+    })
+    .catch(error => {console.log(error)});
+  }
+  
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         아이디:
         <input
+          name="username"
           type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
+          value={member.username}
+          onChange={onChangeHandler}
           required
         />
       </label>
       <label>
         비밀번호:
         <input
+          name="password"
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={member.password}
+          onChange={onChangeHandler}
           required
         />
       </label>
       <label>
         닉네임:
         <input
+          name="nickname"
           type="text"
-          value={nickname}
-          onChange={(e) => setNickname(e.target.value)}
+          value={member.nickname}
+          onChange={onChangeHandler}
           required
         />
       </label>
       <label>
         주민번호 앞자리:
         <input
+          name="ssn"
           type="text"
-          value={ssn}
-          onChange={(e) => setSsn(e.target.value)}
+          value={member.ssn}
+          onChange={onChangeHandler}
           required
           maxLength="6"
         />
