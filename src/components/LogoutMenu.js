@@ -9,8 +9,8 @@ function LogoutMenu ({ handleClose}) {
 
   const navigate = useNavigate()
 
- const handleLoginClick = () => {
-  navigate(`/login`);
+ const handleNav = (param) => {
+  navigate(`/${param}`);
 };
   
 
@@ -20,7 +20,7 @@ function LogoutMenu ({ handleClose}) {
       
       <MenuItem onClick={()=>{
         handleClose();
-        handleLoginClick();
+        handleNav("login");
       }}>
           <ListItemIcon>
             <LoginIcon fontSize="small" />
@@ -28,7 +28,10 @@ function LogoutMenu ({ handleClose}) {
           로그인
         </MenuItem>
 
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() =>{
+          handleClose();
+          handleNav("register");
+        }}>
           <ListItemIcon>
             <PersonAddAlt1Icon fontSize="small" />
           </ListItemIcon>
