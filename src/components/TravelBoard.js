@@ -36,7 +36,7 @@ import "../styles/TravelBoard.css";
 function TravelBoard() {
   const [selectedCategory, setSelectedCategory] = useState("국내"); // 기본 카테고리
   const [filteredPosts, setFilteredPosts] = useState([]); // 필터링된 게시글 데이터
-
+  
   // 선택한 카테고리에 따라 게시글 필터링
   useEffect(() => {
     const filtered = allPosts.filter((post) => post.category === selectedCategory);

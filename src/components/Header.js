@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/Header.css'
 import AccountMenu from './AccountMenu';
 import MobileMenu from './MobileMenu';
 import SearchIcon from '@mui/icons-material/Search';
 
-function Header({ isAuth,handleClose }) {
+function Header({ isAuth,setIsAuth,handleClose }) {
   const [menu, setMenu] = useState(false); // false하면 모바일 메뉴가 안 뜨고 true 하면 모바일 메뉴 뜸.
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    // 세션에서 토큰 확인 후 상태 업데이트
+    const token = sessionStorage.getItem('jwt');
+    setIsAuth(!!token);
+}, []);
 
   return(
     <nav className="nav">
@@ -25,7 +31,7 @@ function Header({ isAuth,handleClose }) {
           <button><SearchIcon/></button> 
         </div>
         <ul className={menu ? "nav-user-hidden" : "nav-user"}>
-          <AccountMenu isAuth={isAuth}/>
+          <AccountMenu isAuth={isAuth} setIsAuth={setIsAuth}/>
         </ul>
       </div>
       

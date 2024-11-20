@@ -5,11 +5,10 @@ import kakaoLogo from '../assets/login/kakao.png';
 import "../styles/LoginPage.css";
 import { useNavigate } from "react-router-dom";
 
-function LoginPage() {
+function LoginPage({setIsAuth}) {
   // 상태 관리: 일반 로그인 또는 기업 로그인 선택
   const [activeTab, setActiveTab] = useState("일반 로그인");
-  const [credentials, setCredentials] = useState({ username: "", password: "" });
-  const [test, setTest] = useState();
+  const [member, setMember] = useState({ username: "", password: "" });
   const navigate = useNavigate();
 
 
@@ -19,22 +18,38 @@ function LoginPage() {
   };
 
   // 입력 필드 변경 핸들러
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setCredentials((prev) => ({ ...prev, [name]: value }));
+  const onChangeHandler  = (e) => {
+    setMember({
+      ...member,
+      [e.target.name] : e.target.value
+    });
   };
+
+
 
   // 폼 제출 핸들러
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, credentials);
-      alert("로그인 성공! " + JSON.stringify(response.data));
-    } catch (error) {
-      alert("로그인 실패: " + error.message);
-    }
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/login`,member)
+    .then(response => {
+      // console.log(response);
+      // console.log(response.headers);
+      // console.log(response.headers.authorization);
+      const jwt = response.headers.authorization;
+
+      if(jwt != null){
+        sessionStorage.setItem('jwt', jwt);
+        setIsAuth(true);
+        navigate('/');
+      }
+    })
+    .catch(error=>{
+      alert('로그인 실패');
+      console.log(error);
+    })
   };
 
+  //회원가입,아이디,비번찾기
   const handleNav = (param) => {
     navigate(`/${param}`);
   }
@@ -64,16 +79,14 @@ function LoginPage() {
             name="username"
             placeholder="아이디"
             className="input-field"
-            value={credentials.username}
-            onChange={handleInputChange}
+            onChange={onChangeHandler}
           />
           <input
             type="password"
             name="password"
             placeholder="비밀번호"
             className="input-field"
-            value={credentials.password}
-            onChange={handleInputChange}
+            onChange={onChangeHandler}
           />
           <button type="submit" className="login-button">
             로그인

@@ -20,7 +20,7 @@ function App() {
   const [isAuth, setIsAuth] = useState(false); // false면 로그아웃 상태, true면 로그인 상태.
   return (
     <div className="App">
-      <Header isAuth={isAuth}/>
+      <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
 
       
      <Routes>
@@ -30,7 +30,7 @@ function App() {
       <Route path="/travel-board/:postId" element={<TravelBdDetail />} />
       <Route path='/tip-board' element={<TipBoard />} />
       <Route path="/tip-board/:postId" element={<TipBdDetail />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>}/>
       <Route path="/register" element={<Register />} />
       
      </Routes>

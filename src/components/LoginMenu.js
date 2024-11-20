@@ -5,9 +5,13 @@ import Logout from '@mui/icons-material/Logout';
 import * as React from 'react';
 import { MenuItem } from '@mui/material';
 
-function LoginMenu ({ handleClose}) {
+function LoginMenu ({ handleClose, isAuth, setIsAuth}) {
   // LoginMenu 컴포넌트와 LogoutMenu 컴포넌트에 있는 handleClose는 AccountMenu에서 가져옴.
-  
+   // 로그아웃
+   const logout = () => {
+    sessionStorage.removeItem('jwt');
+    setIsAuth(false);
+  }
   return(
     <React.Fragment>
       
@@ -23,7 +27,10 @@ function LoginMenu ({ handleClose}) {
           </ListItemIcon>
           찜한 상품
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={()=>{
+          handleClose();
+          logout();
+        }}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

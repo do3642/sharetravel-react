@@ -11,7 +11,7 @@ import LogoutMenu from './LogoutMenu';
 import LoginMenu from './LoginMenu';
 import { useMediaQuery } from '@mui/material';
 
-export default function AccountMenu({isAuth}) {
+export default function AccountMenu({isAuth,setIsAuth}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const isSmallScreen = useMediaQuery('(min-width: 800px)')
@@ -108,7 +108,7 @@ export default function AccountMenu({isAuth}) {
           <Divider />
           {
             isAuth?
-            <LoginMenu handleClose={handleClose} /> :
+            <LoginMenu handleClose={handleClose} isAuth={isAuth} setIsAuth={setIsAuth} /> :
             <LogoutMenu handleClose={handleClose} />
           }
         </Menu>
