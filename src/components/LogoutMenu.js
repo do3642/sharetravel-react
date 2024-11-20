@@ -3,12 +3,25 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import LoginIcon from '@mui/icons-material/Login';
 import * as React from 'react';
 import { MenuItem } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function LogoutMenu ({ handleClose}) {
+
+  const navigate = useNavigate()
+
+ const handleLoginClick = () => {
+  navigate(`/login`);
+};
+  
+
+
   return (
     <React.Fragment>
       
-      <MenuItem onClick={handleClose}>
+      <MenuItem onClick={()=>{
+        handleClose();
+        handleLoginClick();
+      }}>
           <ListItemIcon>
             <LoginIcon fontSize="small" />
           </ListItemIcon>
