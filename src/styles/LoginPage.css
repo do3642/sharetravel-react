@@ -1,0 +1,162 @@
+/* 전체 컨테이너 */
+#login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  margin-top: 150px;
+}
+
+/* 박스 스타일 */
+.login-container {
+  max-width: 1400px;
+  width: 100%;
+}
+
+.login-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* 로그인 탭 */
+.login-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  background: #eaeaea;
+  color: #333;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active {
+  background: #1B263B;
+  color: white;
+}
+
+.tab-button:hover {
+  background: #1B263B;
+  color: #fff;
+}
+
+/* 입력 폼 */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login-button {
+  background: #1B263B;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.login-button:hover {
+  background: #416066;
+}
+
+
+
+
+
+
+.account-management{
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: center;
+  gap: 15px;
+}
+.account-management span{
+  font-family: 'Pretendard-Regular';
+  color: #aaa;
+  cursor: pointer;
+}
+
+.account-management span:hover{
+  color: #333;
+}
+
+
+
+
+
+
+
+/* 소셜 로그인 버튼 컨테이너 */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 버튼 간격 */
+  align-items: center; /* 가운데 정렬 */
+}
+
+/* 소셜 로그인 버튼 */
+.google-login,
+.kakao-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px; /* 버튼 너비 */
+  height: 50px; /* 버튼 높이 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden; /* 이미지가 버튼 영역을 넘어가지 않도록 */
+  padding: 0;
+  background-color: transparent; /* 기본 배경 제거 */
+}
+
+/* 버튼 개별 색상 (백업용) */
+.google-login {
+  background-color: #4285f4; /* 구글 버튼 색 */
+}
+
+.kakao-login {
+  background-color: #fee500; /* 카카오 버튼 색 */
+}
+
+.google-login img,
+.kakao-login img {
+  display: block;
+  width: 100%; /* 부모의 전체 너비에 맞춤 */
+  height: 100%; /* 부모의 전체 높이에 맞춤 */
+  object-fit: contain; /* 원본 비율 유지 */
+}
+
+.google-login img{
+}
+
