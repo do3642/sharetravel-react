@@ -11,7 +11,7 @@ import LogoutMenu from './LogoutMenu';
 import LoginMenu from './LoginMenu';
 import { useMediaQuery } from '@mui/material';
 
-export default function AccountMenu({isAuth,setIsAuth}) {
+export default function AccountMenu({isAuth,setIsAuth,user}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const isSmallScreen = useMediaQuery('(min-width: 800px)')
@@ -101,7 +101,7 @@ export default function AccountMenu({isAuth,setIsAuth}) {
 
           {
             isAuth ?
-            <div className='account-menu'>닉네임님</div> :
+            <div className='account-menu'>{user.nickname}님</div> :
             <div className='account-menu'>로그인 후 <br />이용해주세요</div>
           }
           <br />

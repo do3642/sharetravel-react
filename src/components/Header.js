@@ -4,7 +4,7 @@ import AccountMenu from './AccountMenu';
 import MobileMenu from './MobileMenu';
 import SearchIcon from '@mui/icons-material/Search';
 
-function Header({ isAuth,setIsAuth,handleClose }) {
+function Header({ isAuth,setIsAuth,user,handleClose }) {
   const [menu, setMenu] = useState(false); // false하면 모바일 메뉴가 안 뜨고 true 하면 모바일 메뉴 뜸.
   const [open, setOpen] = useState(false);
 
@@ -31,7 +31,7 @@ function Header({ isAuth,setIsAuth,handleClose }) {
           <button><SearchIcon/></button> 
         </div>
         <ul className={menu ? "nav-user-hidden" : "nav-user"}>
-          <AccountMenu isAuth={isAuth} setIsAuth={setIsAuth}/>
+          <AccountMenu isAuth={isAuth} setIsAuth={setIsAuth} user={user}/>
         </ul>
       </div>
       

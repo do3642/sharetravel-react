@@ -4,7 +4,7 @@ import './App.css';
 import Header from './components/Header';
 
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TravelInfo from './components/TravelInfo';
 import MarketCarousel from './components/MarketCarousel';
 
@@ -15,12 +15,26 @@ import TipBoard from './components/TipBoard';
 import TipBdDetail from './components/TipBdDetail';
 import LoginPage from './components/LoginPage';
 import Register from './components/Register';
+import axiosInstance from './axios/axiosInstance';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false); // false면 로그아웃 상태, true면 로그인 상태.
+  const [user, setUser] = useState(null);
+  useEffect(()=>{
+    if(isAuth){
+      axiosInstance.get('/user')
+        .then(response => {
+          setUser(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
+  }, [isAuth])
+
   return (
     <div className="App">
-      <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
+      <Header isAuth={isAuth} setIsAuth={setIsAuth} user={user}/>
 
       
      <Routes>
