@@ -8,6 +8,7 @@ function LoginPage() {
   // 상태 관리: 일반 로그인 또는 기업 로그인 선택
   const [activeTab, setActiveTab] = useState("일반 로그인");
   const [credentials, setCredentials] = useState({ username: "", password: "" });
+  const [test, setTest] = useState();
 
   // 탭 버튼 클릭 핸들러
   const handleTabClick = (tab) => {
@@ -73,6 +74,12 @@ function LoginPage() {
             로그인
           </button>
         </form>
+        <div className="account-management">
+        {/*회원가입, 아이디 찾기, 비밀번호 찾기 기능을 포함한 태그들*/}
+          <span>회원가입</span>
+          <span>| 아이디찾기</span>
+          <span>| 비밀번호찾기</span>
+        </div>
 
         <div className="social-login">
           <button className="google-login">
@@ -83,6 +90,9 @@ function LoginPage() {
           </button>
         </div>
       </div>
+
+     
+
     </section>
   );
 }
