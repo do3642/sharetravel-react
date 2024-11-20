@@ -3,12 +3,15 @@ import React, { useState } from "react";
 import googleLogo from '../assets/login/google.png';
 import kakaoLogo from '../assets/login/kakao.png';
 import "../styles/LoginPage.css";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   // 상태 관리: 일반 로그인 또는 기업 로그인 선택
   const [activeTab, setActiveTab] = useState("일반 로그인");
   const [credentials, setCredentials] = useState({ username: "", password: "" });
   const [test, setTest] = useState();
+  const navigate = useNavigate();
+
 
   // 탭 버튼 클릭 핸들러
   const handleTabClick = (tab) => {
@@ -26,13 +29,17 @@ function LoginPage() {
     e.preventDefault();
     try {
       const endpoint =
-        activeTab === "일반 로그인" ? "/api/user/login" : "/api/company/login";
+        activeTab === "일반 로그인" ? "/user/login" : "/company/login";
       const response = await axios.post(endpoint, credentials);
       alert("로그인 성공! " + JSON.stringify(response.data));
     } catch (error) {
       alert("로그인 실패: " + error.message);
     }
   };
+
+  const handleNav = (param) => {
+    navigate(`/${param}`);
+  }
 
   return (
     <section id="login-page" className="login-container">
@@ -76,9 +83,9 @@ function LoginPage() {
         </form>
         <div className="account-management">
         {/*회원가입, 아이디 찾기, 비밀번호 찾기 기능을 포함한 태그들*/}
-          <span>회원가입</span>
-          <span>| 아이디찾기</span>
-          <span>| 비밀번호찾기</span>
+          <span onClick={()=>{handleNav('register')}}>회원가입 </span>
+          <span onClick={()=>{handleNav('findId')}}>| 아이디찾기 |</span>
+          <span onClick={()=>{handleNav('findPw')}}>비밀번호찾기</span>
         </div>
 
         <div className="social-login">

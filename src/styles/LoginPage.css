@@ -87,6 +87,33 @@ h1 {
   background: #45a049;
 }
 
+
+
+
+
+
+.account-management{
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: center;
+  gap: 15px;
+}
+.account-management span{
+  font-family: 'Pretendard-Regular';
+  color: #aaa;
+  cursor: pointer;
+}
+
+.account-management span:hover{
+  color: #333;
+}
+
+
+
+
+
+
+
 /* 소셜 로그인 버튼 컨테이너 */
 .social-login {
   display: flex;
@@ -130,3 +157,4 @@ h1 {
 
 .google-login img{
 }
+
