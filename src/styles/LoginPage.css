@@ -55,6 +55,7 @@ h1 {
 
 .tab-button:hover {
   background: #1B263B;
+  color: #fff;
 }
 
 /* 입력 폼 */
@@ -81,10 +82,11 @@ h1 {
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+  transition: .5s;
 }
 
 .login-button:hover {
-  background: #45a049;
+  background: #416066;
 }
 
 
