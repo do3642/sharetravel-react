@@ -1,0 +1,71 @@
+/* 전체 컨테이너 */
+#travel-bd-write {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.write-container {
+  max-width: 1400px;
+  width: 100%;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+}
+
+/* 폼 그룹 */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+.form-control-file {
+  font-size: 14px;
+}
+
+/* 제출 버튼 */
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #1b263b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.submit-button:hover {
+  background-color: #14213d;
+}
