@@ -16,6 +16,7 @@ import Register from './components/Register';
 import Market from './components/Market';
 import axiosInstance from './axios/axiosInstance';
 import MarketDetail from './components/MarketDetail';
+import MarketSell from './components/MarketSell';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false); // false면 로그아웃 상태, true면 로그인 상태.
@@ -47,6 +48,7 @@ console.log(user);
       <Route path="/travel-board/:postId" element={<TravelBdDetail />} />
       <Route path='/market' element={<Market />} />
       <Route path='/market/:productId' element={<MarketDetail />} />
+      <Route path='/marketsell' element={<MarketSell/>} />
       <Route path='/tip-board' element={<TipBoard />} />
       <Route path="/tip-board/:postId" element={<TipBdDetail />} />
       <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>}/>
