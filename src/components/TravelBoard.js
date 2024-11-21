@@ -66,9 +66,9 @@ function TravelBoard() {
         <h2>{selectedCategory} 게시판</h2>
         <hr />
       </div>
-
       {/* Board 컴포넌트 호출 */}
       <Board posts={filteredPosts} boardType={"travel"} />
+      
     </section>
   );
 }

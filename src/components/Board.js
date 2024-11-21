@@ -48,6 +48,12 @@ function Board({ posts,boardType }) {
     const basePath = boardType === "tip" ? "/tip-board" : "/travel-board";
     navigate(`${basePath}/${postId}`);
   };
+  const handleWriteClick = () => {
+    const basePath = boardType === "tip" ? "/tipBoard" : "/travelBoard";
+    navigate(`${basePath}/write`);
+  };
+
+
 
   return (
     <div>
@@ -88,6 +94,8 @@ function Board({ posts,boardType }) {
           })}
         </tbody>
       </table>
+
+          <button className="write-post-btn" onClick={handleWriteClick}>게시물 작성</button>
 
       {/* 페이지네이션 */}
       <div className="pagination">
