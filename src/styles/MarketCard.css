@@ -4,11 +4,12 @@
   display: flex;
   flex-wrap: wrap; /* 카드들이 한 줄에 다 들어가지 않으면 다음 줄로 넘어가도록 설정 */
   gap: 16px;
-  justify-content: space-between;
+  justify-content: start;
+  padding-left: 110px;
 }
 
 .product-card {
-  width: 22%;
+  width: 17%;
   border: 1px solid #b9b9b9;
   display: flex;
   flex-direction: column;
@@ -25,4 +26,55 @@
 .product-card-left #icon {
   font-size: 15px;
   color: #b1b1b1;
+}
+
+@media (max-width: 1200px) {
+  .product-container{
+    padding-left: 90px;
+  }
+}
+
+@media (max-width: 1070px) {
+  .product-card{
+    width: 22%;
+  } 
+}
+
+@media (max-width: 970px) {
+  .product-container{
+    padding-left: 65px;
+  }
+}
+
+@media (max-width: 840px) {
+  .product-container {
+    padding-left: 30px;
+  }
+
+  .product-card {
+    width: 31%;
+    transform: translate(0%);
+  }
+}
+
+@media (max-width: 750px) {
+  .product-container {
+    padding-left: 20px;
+  }
+
+  .product-card {
+    width: 48%;
+  }
+}
+
+@media (max-width: 550px) {
+  .product-container{
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 460px) {
+  .product-card {
+    width: 97%
+  }
 }

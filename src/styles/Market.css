@@ -37,3 +37,24 @@
   justify-content: space-between;
   margin-top: 20px;
 }
+
+.market-bottom .sell-btn {
+  width: 90px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'GmarketSansMedium';
+  background-color: #FFD09B;
+  color: white;
+}
+
+.market-bottom .sell-btn:hover {
+  filter: brightness(0.9);
+}
+
+.market-bottom .up-btn {
+  width: 35px;
+  border: none;
+  border-radius: 50%;
+  font-size: 25px;
+}

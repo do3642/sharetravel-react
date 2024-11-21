@@ -28,8 +28,8 @@ function Market() {
 
       <MarketCard product={product}/>
       <div className="market-bottom">
-        <button>판매하기</button>
-        <button><ArrowUpwardIcon /></button>
+        <button className="sell-btn">판매하기</button>
+        <button className="up-btn"><ArrowUpwardIcon /></button>
       </div>
     </section>
   )
