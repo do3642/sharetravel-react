@@ -2,14 +2,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-<<<<<<< HEAD
-import { useState } from 'react';
-import Home from './components/Home';
-import TravelBoard from './components/TravelBoard';
-import Market from './components/Market';
-=======
-
-
 import { useEffect, useState } from 'react';
 import TravelInfo from './components/TravelInfo';
 import MarketCarousel from './components/MarketCarousel';
@@ -22,7 +14,6 @@ import TipBdDetail from './components/TipBdDetail';
 import LoginPage from './components/LoginPage';
 import Register from './components/Register';
 import axiosInstance from './axios/axiosInstance';
->>>>>>> cc1d9888c3676124af1c88abe2108802b2ec79b5
 
 function App() {
   const [isAuth, setIsAuth] = useState(false); // false면 로그아웃 상태, true면 로그인 상태.
@@ -51,27 +42,21 @@ console.log(user);
       
       <Route path='/' element={<Home />} />
       <Route path='/travel-board' element={<TravelBoard />} />
-<<<<<<< HEAD
 
       <Route path='/market' element={<Market />} />
-=======
       <Route path="/travel-board/:postId" element={<TravelBdDetail />} />
       <Route path='/tip-board' element={<TipBoard />} />
       <Route path="/tip-board/:postId" element={<TipBdDetail />} />
       <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>}/>
       <Route path="/register" element={<Register />} />
       
->>>>>>> cc1d9888c3676124af1c88abe2108802b2ec79b5
      </Routes>
     
 
 
 
 
-<<<<<<< HEAD
     
-=======
->>>>>>> cc1d9888c3676124af1c88abe2108802b2ec79b5
 
     </div>
   );
