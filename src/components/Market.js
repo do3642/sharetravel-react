@@ -7,7 +7,15 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 function Market() {
   const [sortList, setSortList] = useState('최신순');
   // 상품들의 정보를 저장해주는 state
-  const[product, setProduct] = useState(marketData)
+  const[product, setProduct] = useState(marketData);
+
+  // 페이지 상단으로 스크롤 해주는 함수
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <section className="market">
@@ -29,7 +37,7 @@ function Market() {
       <MarketCard product={product}/>
       <div className="market-bottom">
         <button className="sell-btn">판매하기</button>
-        <button className="up-btn"><ArrowUpwardIcon /></button>
+        <button className="up-btn" onClick={scrollTop}><ArrowUpwardIcon /></button>
       </div>
     </section>
   )

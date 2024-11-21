@@ -9,7 +9,7 @@ function MarketCard({ product }) {
   return (
     <div className="product-container">
       {product.map((item, index) => (
-        <div className="product-card" key={index}>
+        <div className="product-card" key={index} onClick={() => navigate(`/market/${item.id}`)}>
           <img className="product-img" src={item.src} alt={item.title} />
           <div className="product-card-right">
             <p className="product-title">{item.title}</p>

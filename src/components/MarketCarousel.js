@@ -69,7 +69,7 @@ function MarketCarousel() {
           >
             <div
               className="image-container"
-              onClick={() => navigate(data.link)} // 상품 페이지로 이동
+              onClick={() => navigate(`market/${data.id}`)} // 상품 페이지로 이동
             >
               <img src={data.src} alt={`마켓이미지${index + 1}`} />
               {isActive && (
