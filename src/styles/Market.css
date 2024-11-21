@@ -31,3 +31,9 @@
 .sort-tabs button:not(.sort):hover {
   background-color: #ddd;
 }
+
+.market-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

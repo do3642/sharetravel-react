@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import '../styles/MarketCard.css';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function MarketCard({ product }) {
   const navigate = useNavigate();
@@ -11,11 +13,12 @@ function MarketCard({ product }) {
           <img className="product-img" src={item.src} alt={item.title} />
           <div className="product-card-right">
             <p className="product-title">{item.title}</p>
-            <p className="product-price">{item.price}</p>
+            <br/>
+            <p className="product-price">{item.price} 원</p>
           </div>
           <div className="product-card-left">
-            <p>{item.view}</p>
-            <p>{item.like}</p>
+            <p><VisibilityIcon id='icon'/> {item.view}</p>
+            <p><FavoriteIcon id='icon'/> {item.like}</p>
           </div>
         </div>
       ))}

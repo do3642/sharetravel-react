@@ -2,6 +2,7 @@ import { useState } from "react";
 import '../styles/Market.css';
 import MarketCard from "./MarketCard";
 import marketData from "../data/marketData";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 function Market() {
   const [sortList, setSortList] = useState('최신순');
@@ -26,6 +27,10 @@ function Market() {
       </div>
 
       <MarketCard product={product}/>
+      <div className="market-bottom">
+        <button>판매하기</button>
+        <button><ArrowUpwardIcon /></button>
+      </div>
     </section>
   )
 }

@@ -13,6 +13,7 @@ import TipBoard from './components/TipBoard';
 import TipBdDetail from './components/TipBdDetail';
 import LoginPage from './components/LoginPage';
 import Register from './components/Register';
+import Market from './components/Market';
 import axiosInstance from './axios/axiosInstance';
 
 function App() {
