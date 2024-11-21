@@ -5,7 +5,6 @@ import Header from './components/Header';
 
 
 import { useEffect, useState } from 'react';
-import TravelInfo from './components/TravelInfo';
 import MarketCarousel from './components/MarketCarousel';
 
 import Home from './components/Home';
@@ -34,7 +33,6 @@ function App() {
         })
     }
   }, [isAuth])
-console.log(user);
   return (
     <div className="App">
       <Header isAuth={isAuth} setIsAuth={setIsAuth} user={user}/>
