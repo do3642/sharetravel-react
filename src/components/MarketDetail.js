@@ -10,14 +10,18 @@ import { useState } from "react";
 function MarketDetail() {
   const { productId } = useParams();
   const product = marketData.find((product) => product.id === parseInt(productId, 10));
+  // 찜을 클릭했는지 안 했는지 기억해줌
+  const [click, setClick] = useState(false); // false가 선택 안 함. true가 선택.
   const [like, setLike] = useState(product.like);
 
-  const likePlus = () => {
-    setLike(like + 1);
-  }
-
-  const likeMinus = () => {
-    setLike(like - 1);
+  // 찜 버튼에 대한 핸들러
+  const handleLikeClick = () => {
+    if (click) {
+      setLike(like - 1);
+    } else {
+      setLike(like + 1);
+    }
+    setClick(!click);
   }
 
   return(
@@ -38,7 +42,7 @@ function MarketDetail() {
           </ul>
 
           <div className="detail-btn">
-            <button className="like-btn" onClick={likePlus}><FavoriteIcon className="dislike"/> 찜 </button>
+            <button className="like-btn" onClick={handleLikeClick}><FavoriteIcon className={click ? "like" : "dislike"}/> 찜 </button>
             <button className="buy-btn"><ShoppingCartIcon /> 바로 구매 </button>
           </div>
         </div>
