@@ -93,7 +93,7 @@ function TravelBdWrite({user}) {
     axiosInstance.post("/travelBoard/posts", data)
     .then(response => {
       alert("게시물 등록 성공")
-      navigate('/')
+      navigate('/travel-board')
       }).catch(error => {
       console.log(error)
       })

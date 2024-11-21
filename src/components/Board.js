@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Board.css";
 
-function Board({ posts,boardType }) {
+function Board({ posts,boardType}) {
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
   const [startPage, setStartPage] = useState(1); // 시작 페이지
   const [endPage, setEndPage] = useState(3); // 끝 페이지
@@ -12,7 +12,7 @@ function Board({ posts,boardType }) {
   const navigate = useNavigate();
 
    // 날짜순으로 오름차순 정렬
-   const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+   const sortedPosts = [...posts].sort((a, b) => new Date(b.createDate) - new Date(a.createDate)); // 최신 글이 먼저 오게
 
   useEffect(() => {
     const newStartPage = Math.floor((currentPage - 1) / pagesPerGroup) * pagesPerGroup + 1;
@@ -53,7 +53,10 @@ function Board({ posts,boardType }) {
     navigate(`${basePath}/write`);
   };
 
-
+  useEffect(() => {
+    // 카테고리 변경 시 currentPage 리셋
+    setCurrentPage(1); // 카테고리 변경 시 페이지를 1로 초기화
+  }, [posts]); // posts가 변경될 때마다 currentPage를 1로 리셋
 
   return (
     <div>
@@ -72,7 +75,7 @@ function Board({ posts,boardType }) {
         </thead>
         <tbody>
           {currentPosts.map((post, index) => {
-             const isNewPost = new Date(post.date).toDateString() === new Date().toDateString(); // 오늘 날짜와 비교
+             const isNewPost = new Date(post.createDate).toDateString() === new Date().toDateString(); // 오늘 날짜와 비교
              return(
             <tr key={post.id} onClick={() => handlePostClick(post.id)}>
               <td>{posts.length - (currentPage - 1) * postsPerPage - index}</td>
@@ -80,15 +83,15 @@ function Board({ posts,boardType }) {
               <td>
                 {post.title}
                 <i className="fa-solid fa-comment"></i>
-                    {post.comments}
+                    {post.comments.length}
                     <i className="fa-solid fa-thumbs-up"></i>
-                    {post.recommendations}
+                    {post.recommendationCount}
                     {isNewPost && (
                       <i style={{ color: 'red', marginLeft: '5px' }}>New</i>)}
               </td>
-              <td>{post.date}</td>
-              <td>{post.author}</td>
-              <td>{post.views}</td>
+              <td>{post.createDate.substring(0, 10)}</td>
+              <td>{post.member.nickname}</td>
+              <td>{post.viewCount}</td>
             </tr>
              )
           })}
