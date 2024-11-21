@@ -9,7 +9,7 @@ function Home(){
       <Visual/>
       <TravelInfo/>
       <TravelAds/>
-      <MarketCarousel />
+     <MarketCarousel />
     </>
   )
 }

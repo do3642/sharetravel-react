@@ -57,7 +57,6 @@ function Visual (){
     // 첫 번째 useEffect: 컴포넌트 마운트 시 자동 슬라이드 시작
     useEffect(() => {
       startAutoSlide(); // 컴포넌트가 처음 마운트될 때 자동 슬라이드를 시작
-      console.log(autoSlideTimerRef);
       // 컴포넌트 언마운트 시 타이머 정리
       return () => {
         if (autoSlideTimer) {

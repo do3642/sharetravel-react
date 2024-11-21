@@ -28,164 +28,49 @@
   // }, [currentPage, selectedCategory]); // 페이지나 카테고리가 변경되면 다시 호출
 
 
-  import { useEffect, useState } from "react";
-  import { useNavigate } from "react-router-dom";
-  import allPosts from "../data/travelBoardData.js";
-  import "../styles/TravelBoard.css";
+  import React, { useState, useEffect } from "react";
+import allPosts from "../data/travelBoardData.js"; // 더미 데이터
+import Board from "./Board.js";
+import "../styles/TravelBoard.css";
+
+function TravelBoard() {
+  const [selectedCategory, setSelectedCategory] = useState("국내"); // 기본 카테고리
+  const [filteredPosts, setFilteredPosts] = useState([]); // 필터링된 게시글 데이터
   
-  function TravelBoard() {
-    const [selectedCategory, setSelectedCategory] = useState("국내"); // 기본 카테고리
-    const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
-    const [postsPerPage] = useState(15); // 페이지당 게시글 수
-    const [totalElements, setTotalElements] = useState(0); // 전체 게시글 수
-    const [startPage, setStartPage] = useState(1); // 시작 페이지 번호
-    const [endPage, setEndPage] = useState(3); // 끝 페이지 번호
-    const [prev, setPrev] = useState(false); // 이전 버튼 활성화 여부
-    const [next, setNext] = useState(false); // 다음 버튼 활성화 여부
-  
-    const navigate = useNavigate();
-  
-    useEffect(() => {
-      const filteredPosts = allPosts.filter((post) => post.category === selectedCategory);
-      setTotalElements(filteredPosts.length);
-      setCurrentPage(1);
-    }, [selectedCategory]);
-  
-    useEffect(() => {
-      const totalPages = Math.ceil(totalElements / postsPerPage);
-      const newStartPage = Math.floor((currentPage - 1) / 3) * 3 + 1;
-      const newEndPage = Math.min(newStartPage + 2, totalPages);
-  
-      setStartPage(newStartPage);
-      setEndPage(newEndPage);
-      setPrev(currentPage > 3);
-      setNext(newEndPage < totalPages);
-    }, [currentPage, totalElements, postsPerPage]);
-  
-    // 페이지 번호 변경
-    const paginate = (pageNumber) => {
-      setCurrentPage(pageNumber);
-    };
-  
-    // 게시글 작성 페이지로 이동
-    const handleWritePost = () => {
-      navigate("/write-post");
-    };
-  
-    // 게시글 클릭 시 상세 페이지로 이동
-    const handlePostClick = (postId) => {
-      navigate(`/travel-board/${postId}`); // 해당 게시글의 ID를 URL에 포함시켜 상세 페이지로 이동
-    };
-  
-    // 이전 페이지로 이동
-    const handlePrevPage = () => {
-      if (prev) {
-        setCurrentPage(startPage - 1); // 이전 페이지로 이동
-      }
-    };
-  
-    // 다음 페이지로 이동
-    const handleNextPage = () => {
-      if (next) {
-        setCurrentPage(endPage + 1); // 다음 페이지로 이동
-      }
-    };
-  
-    // 임시 데이터로 필터링
-    const filteredPosts = allPosts
-      .filter((post) => post.category === selectedCategory) // 국내/국외 필터
-      .sort((a, b) => new Date(b.date) - new Date(a.date)) // 최신순 정렬
-      .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage); // 페이지에 맞게 자르기
-  
-    return (
-      <section className="travel-board">
-        {/* 카테고리 버튼 */}
-        <div className="category-tabs">
-          <button
-            className={selectedCategory === "국내" ? "active" : ""}
-            onClick={() => setSelectedCategory("국내")}
-          >
-            국내
-          </button>
-          <button
-            className={selectedCategory === "국외" ? "active" : ""}
-            onClick={() => setSelectedCategory("국외")}
-          >
-            국외
-          </button>
-        </div>
-  
-        {/* 게시판 타이틀 */}
-        <div className="board-title">
-          <h2>{selectedCategory} 게시판</h2>
-          <hr />
-        </div>
-  
-        {/* 게시글 리스트 */}
-        <table className="post-table">
-          <thead>
-            <tr>
-              <th>글번호</th>
-              <th>여행지</th>
-              <th>제목</th>
-              <th>작성일</th>
-              <th>작성자</th>
-              <th>조회수</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredPosts.map((post, index) => {
-              const isNewPost = new Date(post.date).toDateString() === new Date().toDateString(); // 오늘 날짜와 비교
-              return (
-                <tr key={post.id} onClick={() => handlePostClick(post.id)}>
-                  <td>{totalElements - (currentPage - 1) * postsPerPage - index}</td>
-                  <td>{post.location}</td>
-                  <td>
-                    {post.title}
-                    <i className="fa-solid fa-comment"></i>
-                    {post.comments}
-                    <i className="fa-solid fa-thumbs-up"></i>
-                    {post.recommendations}
-                    {isNewPost && (
-                      <i style={{ color: 'red', marginLeft: '5px' }}>New</i>
-                    )}
-                  </td>
-                  <td>{post.date}</td>
-                  <td>{post.author}</td>
-                  <td>{post.views}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-  
-        {/* 게시글 작성 버튼 */}
-        <button className="write-post-btn" onClick={handleWritePost}>
-          게시글 작성
+  // 선택한 카테고리에 따라 게시글 필터링
+  useEffect(() => {
+    const filtered = allPosts.filter((post) => post.category === selectedCategory);
+    setFilteredPosts(filtered);
+  }, [selectedCategory]);
+
+  return (
+    <section className="travel-board">
+      {/* 카테고리 버튼 */}
+      <div className="category-tabs">
+        <button
+          className={selectedCategory === "국내" ? "active" : ""}
+          onClick={() => setSelectedCategory("국내")}
+        >
+          국내
         </button>
-  
-        {/* 페이지 이동 버튼 */}
-        <div className="pagination">
-          <button className="prev-page" onClick={handlePrevPage} disabled={!prev}>
-          </button>
-          {[...Array(endPage - startPage + 1)].map((_, index) => {
-            const pageNum = startPage + index;
-            return (
-              <button
-                key={pageNum}
-                className={currentPage === pageNum ? "active" : ""}
-                onClick={() => paginate(pageNum)}
-              >
-                {pageNum}
-              </button>
-            );
-          })}
-          <button className="next-page" onClick={handleNextPage} disabled={!next}>
-          </button>
-        </div>
-      </section>
-    );
-  }
-  
-  export default TravelBoard;
-  
+        <button
+          className={selectedCategory === "국외" ? "active" : ""}
+          onClick={() => setSelectedCategory("국외")}
+        >
+          국외
+        </button>
+      </div>
+
+      {/* 게시판 타이틀 */}
+      <div className="board-title">
+        <h2>{selectedCategory} 게시판</h2>
+        <hr />
+      </div>
+
+      {/* Board 컴포넌트 호출 */}
+      <Board posts={filteredPosts} boardType={"travel"} />
+    </section>
+  );
+}
+
+export default TravelBoard;
