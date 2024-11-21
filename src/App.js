@@ -48,7 +48,7 @@ function App() {
       <Route path="/tip-board/:postId" element={<TipBdDetail />} />
       <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>}/>
       <Route path="/register" element={<Register />} />
-      <Route path="/travelBoard/write" element={<TravelBdWrite />} />
+      <Route path="/travelBoard/write" element={<TravelBdWrite user={user} />} />
       
      </Routes>
     

@@ -52,6 +52,11 @@ textarea.form-control {
   font-size: 14px;
 }
 
+.ql-editor{}
+.ql-editor img{
+  width: 500px;
+}
+
 /* 제출 버튼 */
 .submit-button {
   display: block;
