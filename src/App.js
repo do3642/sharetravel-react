@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import { useEffect, useState } from 'react';
-import TravelInfo from './components/TravelInfo';
 import MarketCarousel from './components/MarketCarousel';
 
 import Home from './components/Home';
@@ -17,6 +16,7 @@ import Market from './components/Market';
 import axiosInstance from './axios/axiosInstance';
 import MarketDetail from './components/MarketDetail';
 import MarketSell from './components/MarketSell';
+import TravelBdWrite from './components/TravelBdWrite';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false); // false면 로그아웃 상태, true면 로그인 상태.
@@ -35,7 +35,6 @@ function App() {
         })
     }
   }, [isAuth])
-console.log(user);
   return (
     <div className="App">
       <Header isAuth={isAuth} setIsAuth={setIsAuth} user={user}/>
@@ -45,14 +44,16 @@ console.log(user);
       
       <Route path='/' element={<Home />} />
       <Route path='/travel-board' element={<TravelBoard />} />
-      <Route path="/travel-board/:postId" element={<TravelBdDetail />} />
       <Route path='/market' element={<Market />} />
       <Route path='/market/:productId' element={<MarketDetail user={user}/>} />
       <Route path='/marketsell' element={<MarketSell user={user}/>} />
+      <Route path="/travel-board/:postId" element={<TravelBdDetail user={user} />} />
       <Route path='/tip-board' element={<TipBoard />} />
-      <Route path="/tip-board/:postId" element={<TipBdDetail />} />
+      <Route path="/tip-board/:postId" element={<TipBdDetail  />} />
       <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>}/>
       <Route path="/register" element={<Register />} />
+      <Route path="/travelBoard/write" element={<TravelBdWrite user={user} />} />
+      <Route path="/travelBoard/write/:postId" element={<TravelBdWrite user={user} />} />
       
      </Routes>
     
