@@ -34,42 +34,47 @@ function UserRegister() {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        아이디:
+        아이디
         <input
           name="username"
           type="text"
           value={member.username}
           onChange={onChangeHandler}
+          placeholder="아이디를 입력하세요."
           required
         />
       </label>
       <label>
-        비밀번호:
+        비밀번호
         <input
           name="password"
           type="password"
           value={member.password}
           onChange={onChangeHandler}
+          placeholder="비밀번호를 입력하세요."
+
           required
         />
       </label>
       <label>
-        닉네임:
+        닉네임
         <input
           name="nickname"
           type="text"
           value={member.nickname}
           onChange={onChangeHandler}
+          placeholder="닉네임을 입력하세요."
           required
         />
       </label>
       <label>
-        주민번호 앞자리:
+        연령대
         <input
           name="ssn"
           type="text"
           value={member.ssn}
           onChange={onChangeHandler}
+          placeholder="주민번호 앞 6자리를 입력하세요."
           required
           maxLength="6"
         />

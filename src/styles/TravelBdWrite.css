@@ -16,7 +16,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.write-container h1 {
   margin-bottom: 20px;
   font-size: 24px;
   text-align: center;

@@ -22,10 +22,11 @@
   text-align: center;
 }
 
-h1 {
+#login-page h1 {
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
+  font-family: 'GmarketSansMedium';
 }
 
 /* 로그인 탭 */
