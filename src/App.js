@@ -43,9 +43,9 @@ function App() {
       
       <Route path='/' element={<Home />} />
       <Route path='/travel-board' element={<TravelBoard />} />
-      <Route path="/travel-board/:postId" element={<TravelBdDetail />} />
+      <Route path="/travel-board/:postId" element={<TravelBdDetail user={user} />} />
       <Route path='/tip-board' element={<TipBoard />} />
-      <Route path="/tip-board/:postId" element={<TipBdDetail />} />
+      <Route path="/tip-board/:postId" element={<TipBdDetail  />} />
       <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>}/>
       <Route path="/register" element={<Register />} />
       <Route path="/travelBoard/write" element={<TravelBdWrite user={user} />} />

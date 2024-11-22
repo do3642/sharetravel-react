@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Board.css";
 
 function Board({ posts,boardType}) {
+
+
+
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
   const [startPage, setStartPage] = useState(1); // 시작 페이지
   const [endPage, setEndPage] = useState(3); // 끝 페이지
@@ -58,6 +61,24 @@ function Board({ posts,boardType}) {
     setCurrentPage(1); // 카테고리 변경 시 페이지를 1로 초기화
   }, [posts]); // posts가 변경될 때마다 currentPage를 1로 리셋
 
+
+  // 시간 표시
+  const timeFormat = (i) => {
+      const dateObj = new Date(currentPosts[i].createDate);
+      const year = dateObj.getFullYear();
+      const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // 월은 0부터 시작
+      const day = String(dateObj.getDate()).padStart(2, "0");
+      const hours = String(dateObj.getHours()).padStart(2, "0"); // 로컬 시간
+      const minutes = String(dateObj.getMinutes()).padStart(2, "0");
+      const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
+
+      return formattedDateTime;
+  }
+ 
+  if(!posts){
+    return <div>로딩중 입니다.</div>;
+  }
+
   return (
     <div>
       {/* 게시글 리스트 */}
@@ -89,7 +110,7 @@ function Board({ posts,boardType}) {
                     {isNewPost && (
                       <i style={{ color: 'red', marginLeft: '5px' }}>New</i>)}
               </td>
-              <td>{post.createDate.substring(0, 10)}</td>
+              <td>{timeFormat(index)}</td>
               <td>{post.member.nickname}</td>
               <td>{post.viewCount}</td>
             </tr>
