@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import allPosts from '../data/travelBoardData.js';
 import '../styles/TravelBdDetail.css';
 import userProfile from '../assets/userProfile/test2.png';
@@ -10,6 +10,7 @@ function TravelBdDetail({user}) {
   const { postId } = useParams();
   const [allPost, setAllPost] = useState([]);
   const post = allPost.find((post) => post.id === parseInt(postId, 10));
+  const navigate = useNavigate();
 
    // 게시물 리스트 받아옴
    useEffect(() => {
@@ -24,6 +25,11 @@ function TravelBdDetail({user}) {
 
   if (!post) {
     return <div>게시글을 찾을 수 없습니다.</div>;
+  }
+
+
+  const handlerNav = () =>{
+    navigate(`/travelBoard/write/${postId}`);
   }
 
   
@@ -63,7 +69,7 @@ const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
             <div className='post-controll-icon'>
             <i className="fa-solid fa-ellipsis-vertical"></i>
             <div className='post-controller'>
-              <button>수정</button>
+              <button onClick={handlerNav}>수정</button>
               <button>삭제</button>
             </div>
           </div>: <span></span>

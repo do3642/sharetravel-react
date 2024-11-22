@@ -1,11 +1,12 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Quill 스타일 추가
 import "../styles/TravelBdWrite.css";
 import axiosInstance from "../axios/axiosInstance"; // axios 인스턴스 가져오기
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function TravelBdWrite({user}) {
+  const { postId } = useParams();
   const navigate = useNavigate();
   const quillRef = useRef();
   const [data, setData] = useState({
@@ -15,8 +16,23 @@ function TravelBdWrite({user}) {
     content:'',
     member: user
     });
-
-
+   
+    useEffect(()=>{
+      if(postId){
+        axiosInstance(`/travel-board/write/${postId}`)
+        .then(response => {
+          setData({
+            category: response.data.category,
+            location: response.data.location,
+            title: response.data.title,
+            content: response.data.content
+          })
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }
+    },[])
 
   const imgHandler = () => {
     const input = document.createElement('input');
@@ -67,7 +83,6 @@ function TravelBdWrite({user}) {
     }));
   };
 
-  console.log(data.content)
 
 
 

@@ -49,6 +49,7 @@ function App() {
       <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>}/>
       <Route path="/register" element={<Register />} />
       <Route path="/travelBoard/write" element={<TravelBdWrite user={user} />} />
+      <Route path="/travelBoard/write/:postId" element={<TravelBdWrite user={user} />} />
       
      </Routes>
     
