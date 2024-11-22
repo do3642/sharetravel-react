@@ -10,11 +10,17 @@ import ModalClose from '@mui/joy/ModalClose';
 import Menu from '@mui/icons-material/Menu';
 import Search from '@mui/icons-material/Search';
 import { useMediaQuery } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export default function DrawerMobileNavigation({ open, setOpen, isAuth }) {
 
   const isSmallScreen = useMediaQuery('(max-width: 800px)')
   const isScreen = useMediaQuery('(min-width: 800px)')
+  const navigate = useNavigate()
+
+  const handleNav = (path) =>{
+    navigate(path)
+  }
 
   return (
     <React.Fragment>
@@ -82,21 +88,21 @@ export default function DrawerMobileNavigation({ open, setOpen, isAuth }) {
               '& > div': { justifyContent: 'center' },
             }}
           >
-            <ListItemButton>여행정보</ListItemButton>
-            <ListItemButton>여행팁</ListItemButton>
+            <ListItemButton onClick={()=>{handleNav("/travel-board"); setOpen(false)}}>여행정보</ListItemButton>
+            <ListItemButton onClick={()=>{handleNav("/tip-board"); setOpen(false)}}>여행팁</ListItemButton>
             <ListItemButton>여행지 추천</ListItemButton>
             <ListItemButton>마켓</ListItemButton>
             {
               isAuth ? 
                 <>
-                  <ListItemButton>게시글 작성</ListItemButton>
+                  <ListItemButton onClick={()=>{handleNav("/travelBoard/write"); setOpen(false)}}>게시글 작성</ListItemButton>
                   <ListItemButton>찜한 상품</ListItemButton>
                   <ListItemButton>내 정보</ListItemButton>
-                  <ListItemButton>로그아웃</ListItemButton>
+                  <ListItemButton onClick={()=>{handleNav("/logout"); setOpen(false)}}>로그아웃</ListItemButton>
                 </> :
                 <>
-                  <ListItemButton>로그인</ListItemButton>
-                  <ListItemButton>회원가입</ListItemButton>
+                  <ListItemButton onClick={()=>{handleNav("/login"); setOpen(false)}}>로그인</ListItemButton>
+                  <ListItemButton onClick={()=>{handleNav("/register"); setOpen(false)}}>회원가입</ListItemButton>
                 </>
 
             }

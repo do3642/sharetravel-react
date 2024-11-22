@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Board.css";
 
-function Board({ posts,boardType }) {
+function Board({ posts,boardType}) {
+
+
+
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
   const [startPage, setStartPage] = useState(1); // 시작 페이지
   const [endPage, setEndPage] = useState(3); // 끝 페이지
@@ -12,7 +15,7 @@ function Board({ posts,boardType }) {
   const navigate = useNavigate();
 
    // 날짜순으로 오름차순 정렬
-   const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+   const sortedPosts = [...posts].sort((a, b) => new Date(b.createDate) - new Date(a.createDate)); // 최신 글이 먼저 오게
 
   useEffect(() => {
     const newStartPage = Math.floor((currentPage - 1) / pagesPerGroup) * pagesPerGroup + 1;
@@ -48,6 +51,33 @@ function Board({ posts,boardType }) {
     const basePath = boardType === "tip" ? "/tip-board" : "/travel-board";
     navigate(`${basePath}/${postId}`);
   };
+  const handleWriteClick = () => {
+    const basePath = boardType === "tip" ? "/tipBoard" : "/travelBoard";
+    navigate(`${basePath}/write`);
+  };
+
+  useEffect(() => {
+    // 카테고리 변경 시 currentPage 리셋
+    setCurrentPage(1); // 카테고리 변경 시 페이지를 1로 초기화
+  }, [posts]); // posts가 변경될 때마다 currentPage를 1로 리셋
+
+
+  // 시간 표시
+  const timeFormat = (i) => {
+      const dateObj = new Date(currentPosts[i].createDate);
+      const year = dateObj.getFullYear();
+      const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // 월은 0부터 시작
+      const day = String(dateObj.getDate()).padStart(2, "0");
+      const hours = String(dateObj.getHours()).padStart(2, "0"); // 로컬 시간
+      const minutes = String(dateObj.getMinutes()).padStart(2, "0");
+      const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
+
+      return formattedDateTime;
+  }
+ 
+  if(!posts){
+    return <div>로딩중 입니다.</div>;
+  }
 
   return (
     <div>
@@ -66,7 +96,7 @@ function Board({ posts,boardType }) {
         </thead>
         <tbody>
           {currentPosts.map((post, index) => {
-             const isNewPost = new Date(post.date).toDateString() === new Date().toDateString(); // 오늘 날짜와 비교
+             const isNewPost = new Date(post.createDate).toDateString() === new Date().toDateString(); // 오늘 날짜와 비교
              return(
             <tr key={post.id} onClick={() => handlePostClick(post.id)}>
               <td>{posts.length - (currentPage - 1) * postsPerPage - index}</td>
@@ -74,20 +104,26 @@ function Board({ posts,boardType }) {
               <td>
                 {post.title}
                 <i className="fa-solid fa-comment"></i>
-                    {post.comments}
+                    {post.comments.length}
                     <i className="fa-solid fa-thumbs-up"></i>
-                    {post.recommendations}
+                    {post.recommendationCount}
                     {isNewPost && (
                       <i style={{ color: 'red', marginLeft: '5px' }}>New</i>)}
               </td>
-              <td>{post.date}</td>
-              <td>{post.author}</td>
-              <td>{post.views}</td>
+              <td>{timeFormat(index)}</td>
+              <td>{post.member.nickname}</td>
+              <td>{post.viewCount}</td>
             </tr>
              )
           })}
         </tbody>
       </table>
+          {
+            sessionStorage.getItem('jwt') ?
+          <button className="write-post-btn" onClick={handleWriteClick}>게시물 작성</button>:
+          <></>
+
+          }
 
       {/* 페이지네이션 */}
       <div className="pagination">
