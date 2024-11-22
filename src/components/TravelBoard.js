@@ -39,6 +39,10 @@ function TravelBoard() {
   }, [selectedCategory, allPost]); // allPost가 변경될 때마다 필터링 실행
 
 
+  if(!allPost){
+    
+    return <div>게시물을 불러오고있습니다.</div>
+  }
   
   return (
     <section className="travel-board">

@@ -17,22 +17,23 @@ function TravelBdWrite({user}) {
     member: user
     });
    
-    useEffect(()=>{
-      if(postId){
+    useEffect(() => {
+      if (postId) {
         axiosInstance(`/travel-board/write/${postId}`)
-        .then(response => {
-          setData({
-            category: response.data.category,
-            location: response.data.location,
-            title: response.data.title,
-            content: response.data.content
+          .then((response) => {
+            setData((prevData) => ({
+              ...prevData, // 이전 데이터를 유지
+              category: response.data.category,
+              location: response.data.location,
+              title: response.data.title,
+              content: response.data.content,
+            }));
           })
-        })
-        .catch(error => {
-          console.log(error)
-        })
+          .catch((error) => {
+            console.error(error);
+          });
       }
-    },[])
+    }, []); 
 
   const imgHandler = () => {
     const input = document.createElement('input');
@@ -104,17 +105,28 @@ function TravelBdWrite({user}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(postId);
+    if(postId){
+      axiosInstance.put(`/travel-board/write/${postId}`, data)
+      .then(response => {
+        alert("게시물 수정 성공")
+        navigate('/travel-board')
+        }).catch(error => {
+        console.log(error)
+        })
+    }else{
+      axiosInstance.post("/travelBoard/posts", data)
+      .then(response => {
+        alert("게시물 등록 성공")
+        navigate('/travel-board')
+        }).catch(error => {
+        console.log(error)
+        })
+    }
 
-    axiosInstance.post("/travelBoard/posts", data)
-    .then(response => {
-      alert("게시물 등록 성공")
-      navigate('/travel-board')
-      }).catch(error => {
-      console.log(error)
-      })
-     
   
   };
+
 
   return (
     <section id="travel-bd-write">
