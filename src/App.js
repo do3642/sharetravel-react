@@ -47,8 +47,8 @@ console.log(user);
       <Route path='/travel-board' element={<TravelBoard />} />
       <Route path="/travel-board/:postId" element={<TravelBdDetail />} />
       <Route path='/market' element={<Market />} />
-      <Route path='/market/:productId' element={<MarketDetail />} />
-      <Route path='/marketsell' element={<MarketSell/>} />
+      <Route path='/market/:productId' element={<MarketDetail user={user}/>} />
+      <Route path='/marketsell' element={<MarketSell user={user}/>} />
       <Route path='/tip-board' element={<TipBoard />} />
       <Route path="/tip-board/:postId" element={<TipBdDetail />} />
       <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>}/>

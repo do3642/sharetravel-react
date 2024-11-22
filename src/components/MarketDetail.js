@@ -7,7 +7,7 @@ import '../styles/MarketDetail.css';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useState } from "react";
 
-function MarketDetail() {
+function MarketDetail( {user} ) {
   const { productId } = useParams();
   const product = marketData.find((product) => product.id === parseInt(productId, 10));
   // 찜을 클릭했는지 안 했는지 기억해줌

@@ -48,7 +48,7 @@
 }
 
 /* 버튼 */
-.sell-info button {
+.sell-info .button {
   display: block;
   width: 100%; /* 버튼 너비 */
   padding: 10px;
@@ -63,12 +63,12 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.sell-info button:hover {
+.sell-info .button:hover {
   background-color: #FF9C42; /* 호버 시 더 짙은 색상 */
   transform: translateY(-2px); /* 약간 올라가는 효과 */
 }
 
-.sell-info button:active {
+.sell-info .button:active {
   background-color: #CC7A33; /* 클릭 시 더 진한 색상 */
   transform: translateY(0);
 }
@@ -86,7 +86,7 @@
     padding: 6px 8px;
   }
 
-  .sell-info button {
+  .sell-info .button {
     font-size: 14px;
     padding: 8px;
   }
