@@ -13,6 +13,7 @@ function TravelBdDetail({user}) {
   const post = allPost.find((post) => post.id === parseInt(postId, 10));
   const navigate = useNavigate();
 
+
    // 게시물 리스트 받아옴
    useEffect(() => {
     axiosInstance.get('/travel-board')
@@ -23,6 +24,9 @@ function TravelBdDetail({user}) {
         console.log(error);
       });
   }, []);
+
+  // user가 null 또는 undefined일 때 기본값 설정
+  const safeUser = user || { id: -1 };
 
   if (!post) {
     return <div>게시글을 찾을 수 없습니다.</div>;
@@ -69,7 +73,7 @@ const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
             </div>
           </div>
           {
-            user.id === post.member.id ?
+            safeUser.id === post.member.id ?
             <div className='post-controll-icon'>
             <i className="fa-solid fa-ellipsis-vertical"></i>
             <div className='post-controller'>

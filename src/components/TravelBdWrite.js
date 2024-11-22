@@ -192,7 +192,7 @@ function TravelBdWrite({user}) {
 
           {/* 제출 버튼 */}
           <button type="submit" className="submit-button">
-            작성 완료
+           {postId ? "수정" : "작성"} 
           </button>
         </form>
       </div>

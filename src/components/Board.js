@@ -118,8 +118,12 @@ function Board({ posts,boardType}) {
           })}
         </tbody>
       </table>
+          {
+            sessionStorage.getItem('jwt') ?
+          <button className="write-post-btn" onClick={handleWriteClick}>게시물 작성</button>:
+          <></>
 
-          <button className="write-post-btn" onClick={handleWriteClick}>게시물 작성</button>
+          }
 
       {/* 페이지네이션 */}
       <div className="pagination">
