@@ -105,7 +105,6 @@ function TravelBdWrite({user}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(postId);
     if(postId){
       axiosInstance.put(`/travel-board/write/${postId}`, data)
       .then(response => {

@@ -5,6 +5,7 @@ import userProfile from '../assets/userProfile/test2.png';
 import LikeButton from './LikeButton.js';
 import { useEffect, useState } from 'react';
 import axiosInstance from '../axios/axiosInstance.js';
+import DeleteConfirmation from './DeleteConfirmation.js';
 
 function TravelBdDetail({user}) {
   const { postId } = useParams();
@@ -32,6 +33,9 @@ function TravelBdDetail({user}) {
     navigate(`/travelBoard/write/${postId}`);
   }
 
+  const deletePost = ()=>{
+    
+  }
   
 // 시간 표시
 const dateObj = new Date(post.createDate);
@@ -70,7 +74,7 @@ const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
             <i className="fa-solid fa-ellipsis-vertical"></i>
             <div className='post-controller'>
               <button onClick={handlerNav}>수정</button>
-              <button>삭제</button>
+              <DeleteConfirmation postId={postId}/>
             </div>
           </div>: <span></span>
           }
