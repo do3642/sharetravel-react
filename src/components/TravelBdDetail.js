@@ -11,15 +11,21 @@ import Comments from './Comments.js';
 function TravelBdDetail({user}) {
   const { postId } = useParams();
   const [allPost, setAllPost] = useState([]);
-  const post = allPost.find((post) => post.id === parseInt(postId, 10));
+  // const post = allPost.find((post) => post.id === parseInt(postId, 10));
   const navigate = useNavigate();
-
+  const [post, setPost] = useState(null); // post 상태를 새로 관리
+  const [recommendationCount, setRecommendationCount] = useState(0); // 추천 수 상태
 
    // 게시물 리스트 받아옴
    useEffect(() => {
     axiosInstance.get('/travel-board')
       .then(response => {
-        setAllPost(response.data);
+      setAllPost(response.data);
+      const foundPost = response.data.find((post) => post.id === parseInt(postId, 10));
+      if (foundPost) {
+        setPost(foundPost); // 찾은 post를 상태에 저장
+        setRecommendationCount(foundPost.recommendationCount); // 추천 수 초기화
+      }
       })
       .catch(error => {
         console.log(error);
@@ -42,6 +48,7 @@ function TravelBdDetail({user}) {
     axiosInstance.post(`/travel-board/${postId}/like`)
       .then(response => {
         console.log("추천 증가 성공");
+        setRecommendationCount(prevCount => prevCount + 1);
       })
       .catch(error => {
         console.error("추천 증가 실패", error);
@@ -63,9 +70,7 @@ function TravelBdDetail({user}) {
     navigate(`/travelBoard/write/${postId}`);
   }
 
-  const deletePost = ()=>{
-    
-  }
+
   
 // 시간 표시
 const dateObj = new Date(post.createDate);
@@ -93,7 +98,7 @@ const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
             </div>
             <div className='post-data'>
               <span><i className="fa-solid fa-comment-dots"></i> {post.comments.length}</span>
-              <span><i className="fa-solid fa-heart" style={{color: "#fc9797"}} ></i> {post.recommendationCount}</span>
+              <span><i className="fa-solid fa-heart" style={{color: "#fc9797"}} ></i> {recommendationCount}</span>
               <span><i className="fas fa-eye"></i> {post.viewCount}</span>
               <span><i className="fa-regular fa-clock"></i> {formattedDateTime}</span>
             </div>
