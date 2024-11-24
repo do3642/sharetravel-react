@@ -137,15 +137,19 @@ function Comments({user,postId}) {
                                         <div className="rightDate">
                                             {timeFormat(comment)}
                                     </div>
-
-                                    
-                                    <button
+                                {
+                                    user.id === comment.member.id?
+                                        <button
                                         className="deleteButton"
                                         onClick={() => handleDeleteClick(comment.id)}
                                         aria-label="댓글 삭제"
                                     > 
                                     X 
-                                    </button>
+                                    </button> :
+                                    <></>
+                                }
+                                    
+                                    
                                     
                                     
                                     
