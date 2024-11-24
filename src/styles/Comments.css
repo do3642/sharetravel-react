@@ -102,6 +102,10 @@ textarea {
 }
 
 
+.comment-login{
+    text-align: center;
+    padding: 100px;
+}
 
 .commentBtnBox {
     display: flex; /* 버튼을 가로로 배치 */

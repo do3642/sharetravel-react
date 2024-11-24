@@ -108,17 +108,20 @@ function Comments({user,postId}) {
                 <h3>방문댓글</h3>
                 <span>총 댓글: {comments.length}개</span>
             </div>
-            <div className="commentInput">
-                        <textarea
-                            type="text"
-                            placeholder="댓글을 입력하세요."
-                            value={content}
-                            onChange={(value) => handleContentChange(value)}                             
-                        />
-                    <button onClick={handleButtonClick}>등록</button>
-                    
-                    
-                </div>
+
+            {sessionStorage.getItem('jwt') ? 
+                <div className="commentInput">
+                    <textarea
+                        type="text"
+                        placeholder="댓글을 입력하세요."
+                        value={content}
+                        onChange={(value) => handleContentChange(value)}                             
+                    />
+                <button onClick={handleButtonClick}>등록</button>
+                </div> :
+                <div className="comment-login"> 로그인 후 댓글을 남길 수 있습니다.</div>
+            }
+            
 
             <div className="commentList">
                 {comments.map((comment,i) => (
