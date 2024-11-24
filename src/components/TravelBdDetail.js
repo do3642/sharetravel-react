@@ -23,7 +23,29 @@ function TravelBdDetail({user}) {
       .catch(error => {
         console.log(error);
       });
+
+      
   }, []);
+
+  // 조회수 조절
+  useEffect(() => {
+    const incrementViewCount = async () => {
+      
+        await axiosInstance.post(`/travel-board/${postId}/increment-view`)
+        .then(response => {
+          // console.log(response.data);
+          // console.log('조회수 증가 성공');
+
+        })
+        .catch(error =>{
+          // console.log(error);
+        })
+     
+    };
+
+    incrementViewCount(); // 컴포넌트가 마운트될 때 조회수 증가
+
+  }, [postId]); // postId가 변경될 때마다 실행
 
   // user가 null 또는 undefined일 때 기본값 설정
   const safeUser = user || { id: -1 };

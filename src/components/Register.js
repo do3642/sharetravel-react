@@ -1,34 +1,40 @@
 import React, { useState } from "react";
 import UserRegister from "./UserRegister";
 import CompanyRegister from "./CompanyRegister";
-import "../styles/Register.css"; // 스타일 파일을 따로 만들거나 기존 스타일을 적용하세요.
+import "../styles/Register.css";
 
 function Register() {
-  const [isUser, setIsUser] = useState(true); // 기본값은 개인회원 가입
+  const [isUser, setIsUser] = useState(true);
 
   const handleSelection = (isUserSelected) => {
     setIsUser(isUserSelected);
   };
 
   return (
-    <section className="register-section" style={{ maxWidth: "1400px", margin: "0 auto" }}>
-      <div className="register-selection">
-        <button
-          className={isUser ? "active" : ""}
-          onClick={() => handleSelection(true)}
-        >
-          개인 회원가입
-        </button>
-        <button
-          className={!isUser ? "active" : ""}
-          onClick={() => handleSelection(false)}
-        >
-          기업 회원가입
-        </button>
+    <div id="register-page">
+      <div className="register-container">
+        <div className="register-box">
+          <h1>회원가입</h1>
+          <div className="register-tabs">
+            <button
+              className={`tab-button ${isUser ? "active" : ""}`}
+              onClick={() => handleSelection(true)}
+            >
+              개인 회원가입
+            </button>
+            <button
+              className={`tab-button ${!isUser ? "active" : ""}`}
+              onClick={() => handleSelection(false)}
+            >
+              기업 회원가입
+            </button>
+          </div>
+          <div className="register-form">
+            {isUser ? <UserRegister /> : <CompanyRegister />}
+          </div>
+        </div>
       </div>
-
-      {isUser ? <UserRegister /> : <CompanyRegister />}
-    </section>
+    </div>
   );
 }
 
