@@ -6,6 +6,7 @@ import LikeButton from './LikeButton.js';
 import { useEffect, useState } from 'react';
 import axiosInstance from '../axios/axiosInstance.js';
 import DeleteConfirmation from './DeleteConfirmation.js';
+import Comments from './Comments.js';
 
 function TravelBdDetail({user}) {
   const { postId } = useParams();
@@ -40,7 +41,7 @@ function TravelBdDetail({user}) {
     e.preventDefault();
     axiosInstance.post(`/travel-board/${postId}/like`)
       .then(response => {
-        console.log("추천 증가 성공", response);
+        console.log("추천 증가 성공");
       })
       .catch(error => {
         console.error("추천 증가 실패", error);
@@ -129,16 +130,7 @@ const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
 
 
       <section className="comments-section">
-        <h3>댓글</h3>
-        <div className="comment">
-          <p><strong>사용자1</strong></p>
-          <p>정말 유용한 정보네요! 감사합니다.</p>
-        </div>
-        <div className="comment">
-          <p><strong>사용자2</strong></p>
-          <p>여행 계획할 때 참고하겠습니다.</p>
-        </div>
-        {/* 추가 댓글들을 여기 추가 */}
+            <Comments user={user} postId={postId}/>
       </section>
     </section>
   );
