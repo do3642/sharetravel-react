@@ -9,6 +9,7 @@ function Comments({user,postId}) {
     const [content, setContent] = useState();
     const [deletePopup, setDeletePopup] = useState(false); // 삭제 확인 팝업 상태
     const [refreshComment, setRefreshComment] = useState(0);
+    const [deleteCommentId, setDeleteCommentId] = useState(0);
 
     //비로그인시 제한
     if(!user){
@@ -58,13 +59,29 @@ function Comments({user,postId}) {
 
             setContent('');
     };
-    console.log(content);
        // 댓글 삭제 버튼 클릭
        const handleDeleteClick = (id) => {
+        setDeleteCommentId(id);
         setDeletePopup(true); // 삭제 팝업 표시
+
+        console.log(id)
+        console.log(deleteCommentId);
     };
 
+    // 댓글 삭제요청
+    const handleDeleteComment = (commentId) => {
+        axiosInstance.delete(`/travel-board/${postId}/deleteComments/${commentId}`)
+            .then(response => {
+                console.log(response.data); // 성공 메시지
+                commentList();
+            })
+            .catch(error => {
+                console.error('댓글 삭제 실패', error.response.data);
+            });
+    };
     const confirmDelete = () => {
+        console.log(deleteCommentId);
+        handleDeleteComment(deleteCommentId);
         setDeletePopup(false); // 팝업 닫기
     };
 
