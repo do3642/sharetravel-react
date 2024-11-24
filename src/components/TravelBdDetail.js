@@ -27,25 +27,28 @@ function TravelBdDetail({user}) {
       
   }, []);
 
-  // 조회수 조절
+  // 조회수 증가
   useEffect(() => {
     const incrementViewCount = async () => {
-      
-        await axiosInstance.post(`/travel-board/${postId}/increment-view`)
-        .then(response => {
-          // console.log(response.data);
-          // console.log('조회수 증가 성공');
-
-        })
-        .catch(error =>{
-          // console.log(error);
-        })
-     
+        await axiosInstance.post(`/travel-board/${postId}/increment-view`);
     };
-
     incrementViewCount(); // 컴포넌트가 마운트될 때 조회수 증가
-
   }, [postId]); // postId가 변경될 때마다 실행
+  
+  // 추천 증가 함수
+  const likeUp = (e) => {
+    e.preventDefault();
+    axiosInstance.post(`/travel-board/${postId}/like`)
+      .then(response => {
+        console.log("추천 증가 성공", response);
+      })
+      .catch(error => {
+        console.error("추천 증가 실패", error);
+      });
+  };
+
+
+
 
   // user가 null 또는 undefined일 때 기본값 설정
   const safeUser = user || { id: -1 };
@@ -118,7 +121,9 @@ const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
                추천
               </button>
           </div> */}
-          <LikeButton/>
+          <div onClick={likeUp}>
+            <LikeButton />
+          </div>
         </div>
       </article>
 
