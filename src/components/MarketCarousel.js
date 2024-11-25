@@ -69,15 +69,16 @@ function MarketCarousel() {
           >
             <div
               className="image-container"
-              onClick={() => navigate(`market/${data.id}`)} // 상품 페이지로 이동
+              // 상품 페이지로 이동
             >
-              <img src={data.src} alt={`마켓이미지${index + 1}`} />
+              <img src={data.images} alt={`마켓이미지${index + 1}`} />
               {isActive && (
                 <div className="overlay">
                   <div className='description'>
                     <div className="description-title">{data.title}</div>
                     <br />
                     <div className='description-price'>{data.price}원</div>
+                    <button className='overlay-nav' onClick={() => navigate(`market/${data.id}`)} >상세보기</button>
                   </div>
                   <button className="go left" onClick={prevImg}>
                     <ArrowBackIosNewIcon />
