@@ -12,7 +12,7 @@ function MarketDetail( {user} ) {
   const product = marketData.find((product) => product.id === parseInt(productId, 10));
   // 찜을 클릭했는지 안 했는지 기억해줌
   const [click, setClick] = useState(false); // false가 선택 안 함. true가 선택.
-  const [like, setLike] = useState(product.like);
+  const [like, setLike] = useState(product.likeCount);
 
   // 찜 버튼에 대한 핸들러
   const handleLikeClick = () => {
@@ -27,7 +27,7 @@ function MarketDetail( {user} ) {
   return(
     <section className="market-detail">
       <div className="product">
-        <img src={product.src}></img>
+        <img src={product.images}></img>
         <div className="product-detail">
           <ul className="detail-top">
             <li className="title">{product.title}</li>
@@ -36,9 +36,9 @@ function MarketDetail( {user} ) {
           </ul>
           <hr />
           <ul className="detail-bottom">
-            <li><FavoriteIcon /> {like} |</li>
-            <li><VisibilityIcon /> {product.view} |</li>
-            <li><AccessTimeFilledIcon /> {product.date}</li>
+            <li><FavoriteIcon /> {product.likeCount} |</li>
+            <li><VisibilityIcon /> {product.cnt} |</li>
+            <li><AccessTimeFilledIcon /> {product.createDate}</li>
           </ul>
 
           <div className="detail-btn">
