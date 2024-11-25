@@ -2,8 +2,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-
-
 import { useEffect, useState } from 'react';
 import MarketCarousel from './components/MarketCarousel';
 
@@ -14,7 +12,10 @@ import TipBoard from './components/TipBoard';
 import TipBdDetail from './components/TipBdDetail';
 import LoginPage from './components/LoginPage';
 import Register from './components/Register';
+import Market from './components/Market';
 import axiosInstance from './axios/axiosInstance';
+import MarketDetail from './components/MarketDetail';
+import MarketSell from './components/MarketSell';
 import TravelBdWrite from './components/TravelBdWrite';
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
       
       <Route path='/' element={<Home />} />
       <Route path='/travel-board' element={<TravelBoard />} />
+      <Route path='/market' element={<Market />} />
+      <Route path='/market/:productId' element={<MarketDetail user={user}/>} />
+      <Route path='/marketsell' element={<MarketSell user={user}/>} />
       <Route path="/travel-board/:postId" element={<TravelBdDetail user={user} />} />
       <Route path='/tip-board' element={<TipBoard />} />
       <Route path="/tip-board/:postId" element={<TipBdDetail  />} />
@@ -57,6 +61,7 @@ function App() {
 
 
 
+    
 
     </div>
   );

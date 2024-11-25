@@ -3,6 +3,7 @@ import '../styles/Header.css'
 import AccountMenu from './AccountMenu';
 import MobileMenu from './MobileMenu';
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from 'react-router-dom';
 
 function Header({ isAuth,setIsAuth,user,handleClose }) {
   const [menu, setMenu] = useState(false); // false하면 모바일 메뉴가 안 뜨고 true 하면 모바일 메뉴 뜸.
@@ -23,7 +24,7 @@ function Header({ isAuth,setIsAuth,user,handleClose }) {
           <li><a href='/travel-board'>여행정보</a></li>
           <li><a href='/tip-board'>여행팁</a></li>
           <li><a href='#'>여행지 추천</a></li>
-          <li><a href='#'>마켓</a></li>
+          <li><a href='/market'>마켓</a></li>
         </ul>
       <div className="nav-right">
         <div className={menu ? "nav-search-hidden" : "nav-search"}>

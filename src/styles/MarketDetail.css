@@ -1,0 +1,55 @@
+.market-detail {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 80px;
+}
+
+.product {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product img {
+  width: 35%;
+}
+
+.product-detail {
+  margin-top: 7%;
+  width: 60%
+}
+
+.product-detail .detail-top {
+  margin-bottom: 10px;
+}
+
+.product-detail .detail-bottom {
+  margin-top: 10px;
+  color: #999999;
+}
+
+.product-detail .detail-btn {
+  margin-top: auto;
+}
+
+.detail-btn .like-btn {
+  width: 50%;
+  height: 50px;
+  border: none;
+  background-color: #FFB0B0;
+  font-family: 'GmarketSansMedium';
+}
+
+.detail-btn .like-btn .dislike {
+  color: #b1b1b1;
+}
+
+.detail-btn .like-btn .like {
+  color: red;
+}
+
+.detail-btn .buy-btn {
+  width: 50%;
+  height: 50px;
+  border: none;
+  font-family: 'GmarketSansMedium';
+}

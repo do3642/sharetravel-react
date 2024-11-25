@@ -1,0 +1,61 @@
+/* 전체 섹션 */
+.market {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* 정렬 기준 탭 */
+.sort-tabs {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 30px;
+}
+
+.sort-tabs button {
+  width: 90px;
+  font-size: 16px;
+  height: 40px;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-family: 'GmarketSansMedium';
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sort-tabs button.sort {
+  background-color: #FFD09B;
+  color: white;
+}
+
+.sort-tabs button:not(.sort):hover {
+  background-color: #ddd;
+}
+
+.market-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.market-bottom .sell-btn {
+  width: 90px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'GmarketSansMedium';
+  background-color: #FFD09B;
+  color: white;
+}
+
+.market-bottom .sell-btn:hover {
+  background-color: #FF9C42;
+  transform: translateY(-2px);
+}
+
+.market-bottom .up-btn {
+  width: 35px;
+  border: none;
+  border-radius: 50%;
+  font-size: 25px;
+}

@@ -1,0 +1,93 @@
+/* 공통 스타일 */
+.market-sell {
+  max-width: 600px; /* 중앙에 위치하도록 최대 너비 설정 */
+  margin: 50px auto; /* 중앙 정렬 */
+  padding: 20px;
+  font-family: 'GmarketSansMedium', Arial, sans-serif; /* 메인 폰트 */
+}
+
+/* 리스트 */
+.sell-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sell-info li {
+  margin-bottom: 20px; /* 리스트 간격 */
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* 텍스트 색상 */
+}
+
+.sell-info li input,
+.sell-info li textarea {
+  width: calc(100% - 20px); /* 전체 너비에서 여백 제외 */
+  padding: 8px 10px;
+  margin-top: 5px;
+  font-size: 14px;
+  font-family: 'GmarketSansMedium', Arial, sans-serif;
+  border: 1px solid #bbbaba; /* 메인 색상 테두리 */
+  border-radius: 5px; /* 부드러운 모서리 */
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.sell-info li input:focus,
+.sell-info li textarea:focus {
+  border-color: #FF9C42; /* 포커스 시 더 짙은 색상 */
+  outline: none;
+}
+
+/* textarea 스타일 */
+.sell-info li textarea {
+  resize: vertical; /* 세로 크기 조정 가능, 가로는 고정 */
+  height: auto; /* 내용에 따라 자동 확장 */
+  min-height: 100px; /* 최소 높이 */
+  max-height: 300px; /* 최대 높이 */
+}
+
+/* 버튼 */
+.sell-info .button {
+  display: block;
+  width: 100%; /* 버튼 너비 */
+  padding: 10px;
+  background-color: #FFD09B; /* 메인 색상 배경 */
+  color: #fff; /* 버튼 텍스트 색상 */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'GmarketSansMedium', Arial, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sell-info .button:hover {
+  background-color: #FF9C42; /* 호버 시 더 짙은 색상 */
+  transform: translateY(-2px); /* 약간 올라가는 효과 */
+}
+
+.sell-info .button:active {
+  background-color: #CC7A33; /* 클릭 시 더 진한 색상 */
+  transform: translateY(0);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .market-sell {
+    padding: 15px;
+    margin: 20px;
+  }
+
+  .sell-info li input,
+  .sell-info li textarea {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .sell-info .button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
