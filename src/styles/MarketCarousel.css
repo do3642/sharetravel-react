@@ -96,6 +96,19 @@
   position: absolute;
   right: 10px;
 }
+.overlay-nav{
+  padding: 5px 7px;
+  margin-top: 5px;
+  border-radius: 5px;
+  transition: .2s;
+  border: none;
+  font-family: 'Pretendard-Regular';
+}
+
+.overlay-nav:hover{
+  background-color: #FFB0B0;
+  color: #fff;
+}
 
 @media (max-width: 1655px) {
   .marketCrs {
