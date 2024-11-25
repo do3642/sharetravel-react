@@ -3,6 +3,7 @@ import allPosts from '../data/tipBoardData.js';
 import '../styles/TravelBdDetail.css';
 import userProfile from '../assets/userProfile/test2.png';
 import LikeButton from './LikeButton.js';
+import Comments from './Comments.js';
 
 function TipBdDetail() {
   const { postId } = useParams();
@@ -68,16 +69,7 @@ function TipBdDetail() {
 
 
       <section className="comments-section">
-        <h3>댓글</h3>
-        <div className="comment">
-          <p><strong>사용자1</strong></p>
-          <p>정말 유용한 정보네요! 감사합니다.</p>
-        </div>
-        <div className="comment">
-          <p><strong>사용자2</strong></p>
-          <p>여행 계획할 때 참고하겠습니다.</p>
-        </div>
-        {/* 추가 댓글들을 여기 추가 */}
+            <Comments/>
       </section>
     </section>
   );

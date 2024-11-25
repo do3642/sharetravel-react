@@ -6,24 +6,57 @@ import LikeButton from './LikeButton.js';
 import { useEffect, useState } from 'react';
 import axiosInstance from '../axios/axiosInstance.js';
 import DeleteConfirmation from './DeleteConfirmation.js';
+import Comments from './Comments.js';
 
 function TravelBdDetail({user}) {
   const { postId } = useParams();
   const [allPost, setAllPost] = useState([]);
-  const post = allPost.find((post) => post.id === parseInt(postId, 10));
+  // const post = allPost.find((post) => post.id === parseInt(postId, 10));
   const navigate = useNavigate();
-
+  const [post, setPost] = useState(null); // post 상태를 새로 관리
+  const [recommendationCount, setRecommendationCount] = useState(0); // 추천 수 상태
 
    // 게시물 리스트 받아옴
    useEffect(() => {
     axiosInstance.get('/travel-board')
       .then(response => {
-        setAllPost(response.data);
+      setAllPost(response.data);
+      const foundPost = response.data.find((post) => post.id === parseInt(postId, 10));
+      if (foundPost) {
+        setPost(foundPost); // 찾은 post를 상태에 저장
+        setRecommendationCount(foundPost.recommendationCount); // 추천 수 초기화
+      }
       })
       .catch(error => {
         console.log(error);
       });
+
+      
   }, []);
+
+  // 조회수 증가
+  useEffect(() => {
+    const incrementViewCount = async () => {
+        await axiosInstance.post(`/travel-board/${postId}/increment-view`);
+    };
+    incrementViewCount(); // 컴포넌트가 마운트될 때 조회수 증가
+  }, [postId]); // postId가 변경될 때마다 실행
+  
+  // 추천 증가 함수
+  const likeUp = (e) => {
+    e.preventDefault();
+    axiosInstance.post(`/travel-board/${postId}/like`)
+      .then(response => {
+        console.log("추천 증가 성공");
+        setRecommendationCount(prevCount => prevCount + 1);
+      })
+      .catch(error => {
+        console.error("추천 증가 실패", error);
+      });
+  };
+
+
+
 
   // user가 null 또는 undefined일 때 기본값 설정
   const safeUser = user || { id: -1 };
@@ -37,9 +70,7 @@ function TravelBdDetail({user}) {
     navigate(`/travelBoard/write/${postId}`);
   }
 
-  const deletePost = ()=>{
-    
-  }
+
   
 // 시간 표시
 const dateObj = new Date(post.createDate);
@@ -67,7 +98,7 @@ const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
             </div>
             <div className='post-data'>
               <span><i className="fa-solid fa-comment-dots"></i> {post.comments.length}</span>
-              <span><i className="fa-solid fa-heart" style={{color: "#fc9797"}} ></i> {post.recommendationCount}</span>
+              <span><i className="fa-solid fa-heart" style={{color: "#fc9797"}} ></i> {recommendationCount}</span>
               <span><i className="fas fa-eye"></i> {post.viewCount}</span>
               <span><i className="fa-regular fa-clock"></i> {formattedDateTime}</span>
             </div>
@@ -96,22 +127,15 @@ const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
                추천
               </button>
           </div> */}
-          <LikeButton/>
+          <div onClick={likeUp}>
+            <LikeButton />
+          </div>
         </div>
       </article>
 
 
       <section className="comments-section">
-        <h3>댓글</h3>
-        <div className="comment">
-          <p><strong>사용자1</strong></p>
-          <p>정말 유용한 정보네요! 감사합니다.</p>
-        </div>
-        <div className="comment">
-          <p><strong>사용자2</strong></p>
-          <p>여행 계획할 때 참고하겠습니다.</p>
-        </div>
-        {/* 추가 댓글들을 여기 추가 */}
+            <Comments user={user} postId={postId}/>
       </section>
     </section>
   );

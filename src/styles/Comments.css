@@ -1,0 +1,207 @@
+.commentTitle {
+    display: flex; /* 플렉스박스 사용 */
+    justify-content: space-between; /* 자식 요소를 양쪽 끝으로 배치 */
+    align-items: center; /* 세로축 가운데 정렬 */
+    padding: 10px; /* 내부 여백 추가 (선택 사항) */
+    border-bottom: 1px solid #ddd; /* 구분선 추가 (선택 사항) */
+    font-family: 'GmarketSansMedium';
+    display: flex;
+}
+
+
+.commentId {
+    font-weight: bold;
+    font-size: 16px;
+    
+}
+
+textarea {
+    margin-top: 0px;
+    padding: 8px;
+    font-size: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    width: 100%;
+    min-height: 200px;
+}
+.commentInput {
+    position: relative;
+    margin-bottom: 50px;
+    
+}
+.commentInput button{
+    position: absolute;
+    right: 2%; bottom: 15%;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background-color: #FFB0B0;
+    font-size: 20px;
+}
+.commentUserBottom1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dateAndDelete {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 날짜와 삭제 버튼 사이 간격 */
+    margin-left: auto; /* 우측 정렬 */
+}
+
+
+
+.leftImage img {
+    width: 3em; /* 이미지 너비 */
+    height: 3em; /* 이미지 높이 */
+    border-radius: 50%; /* 원형으로 만들기 */
+    object-fit: contain; /* 이미지를 컨테이너 크기에 맞게 조정 */
+}
+
+.rightDate {
+    display: flex;
+    align-items: center;
+    gap: 0px; /* 날짜와 버튼 사이의 간격 */
+    font-size: 14px; /* 날짜 텍스트 크기 */
+    color: #666; /* 날짜 색상 */
+}
+
+.commentBox {
+    display: flex; /* Flexbox 사용 */
+    flex-direction: column; /* 세로 정렬 */
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px; /* 댓글 간 간격 */
+    background-color: #ffdede; /* 배경색 */
+}
+.commentBox .commentBox {
+    padding: 10px;
+}
+
+.commentContent {
+    margin-top: 2px; /* 댓글 내용과 상단 정보 간 간격 */
+    word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
+    line-height: 1.5; /* 가독성 향상 */
+    padding: 10px;
+}
+
+.commentUser {
+    display: flex; /* 유저 정보와 함께 배치 */
+    align-items: center;
+    margin-bottom: 2px; /* 아래 간격 */
+}
+
+.commentUserTop {
+    display: flex; /* 상단 아이디 및 삭제 버튼 배치 */
+    justify-content: space-between; /* 양쪽 정렬 */
+    width: 100%; /* 너비를 댓글 박스에 맞춤 */
+    align-items: center;
+}
+
+
+.comment-login{
+    text-align: center;
+    padding: 100px;
+}
+
+.commentBtnBox {
+    display: flex; /* 버튼을 가로로 배치 */
+    justify-content: flex-end; /* 버튼을 우측 정렬 */
+    gap: 15px; /* 버튼 간격 */
+    margin-top: 10px; /* 댓글 내용과 버튼 간 간격 */
+}
+
+.leftIcon, .rightIcon {
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.leftIcon:hover, .rightIcon:hover {
+    color: #007bff; /* 버튼 호버 효과 */
+}
+
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 20px;
+    background-color: #ff6f61; /* 좀 더 부드러운 색상 */
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.deleteButton {
+    background: rgb(168, 167, 167); /* 배경색을 원하는 색으로 설정 */
+    border: 2px solid rgb(155, 153, 153); /* 테두리 */
+    color: white; /* X자 색상 */
+    font-size: 12px; /* X자 크기 */
+    cursor: pointer;
+    width: 15px; /* 버튼의 너비 */
+    height: 14px; /* 버튼의 높이 */
+    border-radius: 20%; /* 버튼을 원형으로 만들기 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.deleteButton:hover {
+    background-color: #ffe6e6; /* 마우스 오버 시 배경 색 변경 */
+    color: darkred; /* X자 색상 진하게 */
+    border-color: darkred; /* 테두리 색상 진하게 */
+    transform: scale(1.1); /* 크기 확대 효과 */
+}
+
+.deletePopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFB0B0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    font-size: 12px;
+}
+
+.deletePopupContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.deletePopupContent button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deletePopupContent button:first-child {
+    background: red;
+    color: white;
+}
+
+.deletePopupContent button:last-child {
+    background: gray;
+    color: white;
+}
