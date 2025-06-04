@@ -17,14 +17,14 @@ function Header({ isAuth,setIsAuth,user,handleClose }) {
 
   return(
     <nav className="nav">
-        <a href='/' className={menu ? 'nav-title-hidden' : "nav-title"} style={{marginTop:0}}>
+        <a href='/sharetravel' className={menu ? 'nav-title-hidden' : "nav-title"} style={{marginTop:0}}>
           <h1>여정</h1>
         </a>
         <ul className={menu ? 'nav-menu-hidden' : "nav-menu"}>
-          <li><a href='/travel-board'>여행정보</a></li>
-          <li><a href='/tip-board'>여행팁</a></li>
+          <li><a href='/sharetravel/travel-board'>여행정보</a></li>
+          <li><a href='/sharetravel/tip-board'>여행팁</a></li>
           <li><a href='#'>여행지 추천</a></li>
-          <li><a href='/market'>마켓</a></li>
+          <li><a href='/sharetravel/market'>마켓</a></li>
         </ul>
       <div className="nav-right">
         <div className={menu ? "nav-search-hidden" : "nav-search"}>

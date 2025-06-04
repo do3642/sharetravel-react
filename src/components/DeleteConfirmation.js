@@ -18,7 +18,7 @@ function DeleteConfirmation({postId}) {
     axiosInstance.delete(`/travel-board/${postId}`)
     .then(response => {
       alert(`게시물 삭제 완료!`)
-      navigate('/travel-board')
+      navigate('/sharetravel/travel-board')
     })
 
     handleClose();

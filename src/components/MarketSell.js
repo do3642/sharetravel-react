@@ -50,7 +50,7 @@ function MarketSell({ user }) {
       }
     }).then(response => {
       alert(response.data)
-      navigate('/')
+      navigate('/sharetravel')
     }).catch(error => {
       console.log(error)
     })

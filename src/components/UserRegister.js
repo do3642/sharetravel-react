@@ -25,7 +25,7 @@ function UserRegister() {
     .then(response => {
       console.log(response);
       alert(response.data);
-      navigate('/');
+      navigate('/sharetravel');
     })
     .catch(error => {console.log(error)});
   }
