@@ -17,7 +17,7 @@ function Header({ isAuth,setIsAuth,user,handleClose }) {
 
   return(
     <nav className="nav">
-        <a href='/' className={menu ? 'nav-title-hidden' : "nav-title"}>
+        <a href='/' className={menu ? 'nav-title-hidden' : "nav-title"} style={{marginTop:0}}>
           <h1>여정</h1>
         </a>
         <ul className={menu ? 'nav-menu-hidden' : "nav-menu"}>
