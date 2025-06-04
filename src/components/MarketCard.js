@@ -19,7 +19,7 @@ function MarketCard({ product }) {
       }).catch(error => {
         console.log(error);
       })
-  },[])
+  }, [])
 
   const combinedProducts = [
     ...product.map(item => ({
@@ -32,7 +32,7 @@ function MarketCard({ product }) {
     })),
   ];
 
-  if( !loading ) {
+  if (!loading) {
     return (<div>로딩중입니다.</div>)
   }
 
@@ -40,15 +40,24 @@ function MarketCard({ product }) {
     <div className="product-container">
       {combinedProducts.map((item, index) => (
         <div className="product-card" key={index} onClick={() => navigate(`/market/${item.id}`)}>
-          <img className="product-img" src={item.images[1] ? `http://localhost:8888/upload/${item.images[2].img}` : `/img/market-${index}.png`} alt={item.title} />
+          <img
+            className="product-img"
+            src={
+              item.images[1]
+                ? `${process.env.REACT_APP_SERVER_URL}/upload/${item.images[2].img}`
+                : `${process.env.PUBLIC_URL}/img/market-${index}.png`
+            }
+            alt={item.title}
+          />
+
           <div className="product-card-right">
             <p className="product-title">{item.title}</p>
-            <br/>
+            <br />
             <p className="product-price">{item.price} 원</p>
           </div>
           <div className="product-card-left">
-            <p><VisibilityIcon id='icon'/> {item.cnt}</p>
-            <p><FavoriteIcon id='icon'/> {item.likeCount}</p>
+            <p><VisibilityIcon id='icon' /> {item.cnt}</p>
+            <p><FavoriteIcon id='icon' /> {item.likeCount}</p>
           </div>
         </div>
       ))}

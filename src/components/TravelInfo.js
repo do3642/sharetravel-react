@@ -13,7 +13,7 @@ function TravelInfo() {
 
 
   // 상태 정의: 현재 이미지 URL을 저장할 state
-  const [currentImage, setCurrentImage] = useState("/img/travelInfo-1.jpg");
+  const [currentImage, setCurrentImage] = useState(process.env.PUBLIC_URL + "/img/travelInfo-1.jpg");
   const [imageIndex, setImageIndex] = useState(0);
 
 

@@ -1,4 +1,4 @@
-import React, { useMemo, useRef }  from 'react';
+import React, { useMemo, useRef } from 'react';
 import './App.css';
 import { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
@@ -18,20 +18,24 @@ function App() {
 
     input.onchange = async () => {
       const file = input.files[0];
-      
-      if(file) {
+
+      if (file) {
         const formData = new FormData();
         formData.append('image', file);
 
-        const response = await axios.post('http://localhost:8888/test/img', formData, {
-          headers: {
-            "Content-Type" : "multipart/form-data"
+        const response = await axios.post(
+          `${process.env.REACT_APP_SERVER_URL}/test/img`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
           }
-        });
+        );
 
-        const imgUrl = `http://localhost:8888/upload/${response.data}`;
+        const imgUrl = `${process.env.REACT_APP_SERVER_URL}/upload/${response.data}`;
 
-        if(quillRef.current) {
+        if (quillRef.current) {
           const editor = quillRef.current.getEditor();
           const range = editor.getSelection();
           editor.insertEmbed(range.index, "image", imgUrl);
@@ -50,7 +54,7 @@ function App() {
         [{ list: 'ordered' }, { list: 'bullet' }],
         ['link', 'image']
       ],
-      handlers : {
+      handlers: {
         image: imgHandler
       }
     }

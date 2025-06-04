@@ -1,7 +1,9 @@
+const baseUrl = process.env.PUBLIC_URL;
+
 const adsData = [
   {
     id: 1,
-    imgSrc: '/img/travelAds-1.jpg',
+    imgSrc: `${baseUrl}/img/travelAds-1.jpg`,
     category: '호텔',
     title: '해피홈 호텔',
     description: '오션뷰와 함께하는 여유로운 휴식',
@@ -12,7 +14,7 @@ const adsData = [
   },
   {
     id: 2,
-    imgSrc: '/img/travelAds-2.jpg',
+    imgSrc: `${baseUrl}/img/travelAds-2.jpg`,
     category: '리조트',
     title: '트로피칼 리조트',
     description: '파라다이스 같은 휴양지',
@@ -23,7 +25,7 @@ const adsData = [
   },
   {
     id: 3,
-    imgSrc: '/img/travelAds-3.jpg',
+    imgSrc: `${baseUrl}/img/travelAds-3.jpg`,
     category: '펜션',
     title: '포레스트 펜션',
     description: '자연 속 조용한 휴식처',
@@ -34,7 +36,7 @@ const adsData = [
   },
   {
     id: 4,
-    imgSrc: '/img/travelAds-4.jpg',
+    imgSrc: `${baseUrl}/img/travelAds-4.jpg`,
     category: '캠핑장',
     title: '스타라이트 캠핑장',
     description: '밤하늘의 별을 즐기는 캠핑',
@@ -45,7 +47,7 @@ const adsData = [
   },
   {
     id: 5,
-    imgSrc: '/img/travelAds-5.jpg',
+    imgSrc: `${baseUrl}/img/travelAds-5.jpg`,
     category: '리조트',
     title: '골드샌드 리조트',
     description: '황금빛 해변이 매력적인 리조트',
@@ -56,7 +58,7 @@ const adsData = [
   },
   {
     id: 6,
-    imgSrc: '/img/travelAds-6.jpg',
+    imgSrc: `${baseUrl}/img/travelAds-6.jpg`,
     category: '호텔',
     title: '스카이뷰 호텔',
     description: '도심 속의 럭셔리',
@@ -67,7 +69,7 @@ const adsData = [
   },
   {
     id: 7,
-    imgSrc: '/img/travelAds-7.jpg',
+    imgSrc: `${baseUrl}/img/travelAds-7.jpg`,
     category: '게스트하우스',
     title: '더 코지 게스트하우스',
     description: '따뜻한 환대와 편안한 숙소',
@@ -78,7 +80,7 @@ const adsData = [
   },
   {
     id: 8,
-    imgSrc: '/img/travelAds-8.jpg',
+    imgSrc: `${baseUrl}/img/travelAds-8.jpg`,
     category: '펜션',
     title: '블루레이크 펜션',
     description: '호수 전망이 멋진 숙소',
