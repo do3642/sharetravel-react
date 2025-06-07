@@ -109,7 +109,7 @@ function TravelBdWrite({user}) {
       axiosInstance.put(`/travel-board/write/${postId}`, data)
       .then(response => {
         alert("게시물 수정 성공")
-        navigate('/sharetravel/travel-board')
+        navigate('/travel-board')
         }).catch(error => {
         console.log(error)
         })
@@ -117,7 +117,7 @@ function TravelBdWrite({user}) {
       axiosInstance.post("/travelBoard/posts", data)
       .then(response => {
         alert("게시물 등록 성공")
-        navigate('/sharetravel/travel-board')
+        navigate('/travel-board')
         }).catch(error => {
         console.log(error)
         })

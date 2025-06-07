@@ -3,7 +3,6 @@ import '../styles/Header.css'
 import AccountMenu from './AccountMenu';
 import MobileMenu from './MobileMenu';
 import SearchIcon from '@mui/icons-material/Search';
-import { useNavigate } from 'react-router-dom';
 
 function Header({ isAuth,setIsAuth,user,handleClose }) {
   const [menu, setMenu] = useState(false); // false하면 모바일 메뉴가 안 뜨고 true 하면 모바일 메뉴 뜸.

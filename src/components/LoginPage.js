@@ -40,7 +40,7 @@ function LoginPage({setIsAuth}) {
       if(jwt != null){
         sessionStorage.setItem('jwt', jwt);
         setIsAuth(true);
-        navigate('/sharetravel');
+        navigate('/');
       }
     })
     .catch(error=>{

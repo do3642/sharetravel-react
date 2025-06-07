@@ -39,7 +39,7 @@ function LoginMenu ({ handleClose, isAuth, setIsAuth}) {
         </MenuItem>
         <MenuItem onClick={()=>{
           handleClose();
-          navigate('/sharetravel/userInfo');
+          navigate('/userInfo');
         }}>
           <ListItemIcon>
             <ManageAccountsIcon fontSize="small" />

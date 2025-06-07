@@ -38,7 +38,7 @@ function Market() {
 
       <MarketCard product={product}/>
       <div className="market-bottom">
-        <button className="sell-btn" onClick={() => navigate('/sharetravel/marketsell')}>판매하기</button>
+        <button className="sell-btn" onClick={() => navigate('/marketsell')}>판매하기</button>
         <button className="up-btn" onClick={scrollTop}><ArrowUpwardIcon /></button>
       </div>
     </section>

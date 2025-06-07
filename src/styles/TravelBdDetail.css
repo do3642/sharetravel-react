@@ -126,3 +126,20 @@
 .post-body .post-con{}
 
 
+
+@media (max-width:1400px) {
+  #travel-bd-detail{
+    padding-inline: 15px;
+  }
+}
+@media (max-width:450px){
+  .post-meta > span{
+    width: 35px;
+  }
+  .post-data{
+    gap: 5px;
+  }
+  .post-data span:last-child{
+    display: none;
+  }
+}
